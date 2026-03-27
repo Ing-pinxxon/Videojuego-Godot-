@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cljdqputudr4m"]
+
+[ext_resource type="PackedScene" uid="uid://dvt42vn2x5cqs" path="res://Map/Map.tscn" id="1_iaq0h"]
+[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://Enemy/ghost.tscn" id="2_safhr"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/player.tscn" id="3_c0lbt"]
+
+[node name="PrimeraParte" type="Node2D" unique_id=1049247597]
+
+[node name="Map" parent="." unique_id=608137315 instance=ExtResource("1_iaq0h")]
+position = Vector2(-1, 1)
+
+[node name="Ghost" parent="." unique_id=1857393775 instance=ExtResource("2_safhr")]
+position = Vector2(354, 473)
+
+[node name="Player" parent="." unique_id=273606343 instance=ExtResource("3_c0lbt")]
+position = Vector2(277, 352)
+
+[node name="Ghost2" parent="." unique_id=1382516748 instance=ExtResource("2_safhr")]
+position = Vector2(731, 288)
