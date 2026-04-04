@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ccp2t2spnc4ef"]
+
+[ext_resource type="Texture2D" uid="uid://dqb5fsxhlrx8o" path="res://assets/sprites/enemies/vampiro/Vampiro despertando y caminando.png" id="1_p5rpu"]
+[ext_resource type="Texture2D" uid="uid://c6rl2yevhaxbs" path="res://assets/sprites/enemies/vampiro/Dracula.png" id="2_sqioe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa6u7"]
+atlas = ExtResource("1_p5rpu")
+region = Rect2(0, 0, 418, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38qfd"]
+atlas = ExtResource("1_p5rpu")
+region = Rect2(418, 0, 418, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj3rg"]
+atlas = ExtResource("2_sqioe")
+region = Rect2(712, 0, 356, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r51fj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa6u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38qfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj3rg")
+}],
+"loop": true,
+"name": &"Salida_ataud",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run_down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q0tp0"]
+radius = 18.0
+
+[node name="Vampiro" type="CharacterBody2D" unique_id=1799199860]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=791500427]
+sprite_frames = SubResource("SpriteFrames_r51fj")
+animation = &"run_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D" unique_id=247411513]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=802575732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=69640865]
+shape = SubResource("CircleShape2D_q0tp0")

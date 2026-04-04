@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://83yiq6so8mou"
-path="res://.godot/imported/Enemy1Left.png-c45a25759c3b36cc066482bdf0166cb1.ctex"
+uid="uid://b7dmaqeyouqsx"
+path="res://.godot/imported/Dracula Primero.png-d40e4865409d76b45592a9c25c49c0f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/spriter/Enemy1Left.png"
-dest_files=["res://.godot/imported/Enemy1Left.png-c45a25759c3b36cc066482bdf0166cb1.ctex"]
+source_file="res://assets/sprites/enemies/vampiro/Dracula Primero.png"
+dest_files=["res://.godot/imported/Dracula Primero.png-d40e4865409d76b45592a9c25c49c0f4.ctex"]
 
 [params]
 

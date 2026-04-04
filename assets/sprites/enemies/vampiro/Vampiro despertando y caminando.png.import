@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6nhdmmlgagw"
-path="res://.godot/imported/Enemy1Right.png-cb73010b37329660235b279849a3ac1c.ctex"
+uid="uid://dqb5fsxhlrx8o"
+path="res://.godot/imported/Vampiro despertando y caminando.png-0f9c7a1e0d04a38c79f6c3303e0982e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/spriter/Enemy1Right.png"
-dest_files=["res://.godot/imported/Enemy1Right.png-cb73010b37329660235b279849a3ac1c.ctex"]
+source_file="res://assets/sprites/enemies/vampiro/Vampiro despertando y caminando.png"
+dest_files=["res://.godot/imported/Vampiro despertando y caminando.png-0f9c7a1e0d04a38c79f6c3303e0982e4.ctex"]
 
 [params]
 

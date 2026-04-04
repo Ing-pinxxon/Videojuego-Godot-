@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byjkac58rxprs"]
 
-[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://Enemy/ghost.tscn" id="2_enemy"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scences/entities/enemies/ghost.tscn" id="2_enemy"]
 [ext_resource type="Texture2D" uid="uid://caf3qio26p1ui" path="res://icon.svg" id="3_icon"]
 
 [node name="Main" type="Node2D" unique_id=58377850]

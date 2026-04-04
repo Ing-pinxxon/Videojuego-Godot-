@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo2ahugfd8syv"]
 
-[ext_resource type="Script" uid="uid://cgnc620eu2t3c" path="res://scences/player.gd" id="1_3j5lm"]
+[ext_resource type="Script" uid="uid://cgnc620eu2t3c" path="res://scripts/player.gd" id="1_3j5lm"]
 [ext_resource type="Texture2D" uid="uid://crvcvkw312svm" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_idle_down_anim_strip_6.png" id="2_641ry"]
 [ext_resource type="Texture2D" uid="uid://c7i7w3fcoqswg" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_idle_left_anim_strip_6.png" id="3_s4ay6"]
 [ext_resource type="Texture2D" uid="uid://caooxa1q6c5mf" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_idle_right_anim_strip_6.png" id="4_eqdch"]
@@ -582,26 +582,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p4d"]
-size = Vector2(28, 29)
+size = Vector2(46, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lowl5"]
-size = Vector2(28, 29)
+size = Vector2(45, 86)
 
 [node name="Player" type="CharacterBody2D" unique_id=273606343]
-position = Vector2(44, 71)
+position = Vector2(336, 163)
 script = ExtResource("1_3j5lm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." unique_id=811798934]
-position = Vector2(10, 9)
-scale = Vector2(2.25, 2.125)
+position = Vector2(42.000004, 45.999992)
+scale = Vector2(6.250001, 6.749999)
 sprite_frames = SubResource("SpriteFrames_ikh6d")
 animation = &"idle_down"
 autoplay = "idle_down"
 frame_progress = 0.96274495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474151542]
-position = Vector2(10, 7.5)
+position = Vector2(44, 40.5)
 shape = SubResource("RectangleShape2D_u4p4d")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=813945899]
@@ -610,7 +610,10 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1370673894]
-position = Vector2(2, 7.5)
+position = Vector2(35.5, 42)
 shape = SubResource("RectangleShape2D_lowl5")
 debug_color = Color(0.9, 0.1, 0.1, 0.4)
 metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=310329592]
+zoom = Vector2(1.8, 1.8)

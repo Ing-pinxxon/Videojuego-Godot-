@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brnobydkj2yox"
-path="res://.godot/imported/Map.png-c9d702caf0f2a2eba7a374790fdae5b4.ctex"
+uid="uid://f4kfs11iuhkk"
+path="res://.godot/imported/Mundo_Demoniaco.png-563ae1ba5db345deef61473d1815aebd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Map/Sprint/Map.png"
-dest_files=["res://.godot/imported/Map.png-c9d702caf0f2a2eba7a374790fdae5b4.ctex"]
+source_file="res://assets/Map/Mundo_Demoniaca/Mundo_Demoniaco.png"
+dest_files=["res://.godot/imported/Mundo_Demoniaco.png-563ae1ba5db345deef61473d1815aebd.ctex"]
 
 [params]
 

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dtv3o5syq32jv"]
+
+[ext_resource type="Script" uid="uid://coocv5x0w3j7w" path="res://scripts/murcielago.gd" id="1_lcn31"]
+[ext_resource type="Texture2D" uid="uid://cfsl0sgvrsrxj" path="res://assets/sprites/enemies/vampiro/Murcielago_1.png" id="2_4xce3"]
+[ext_resource type="Texture2D" uid="uid://dnlv1rxa0krwi" path="res://assets/sprites/enemies/vampiro/Murcielago_2.png" id="3_yn7t1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckelm"]
+atlas = ExtResource("2_4xce3")
+region = Rect2(219, 0, 219, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb3hg"]
+atlas = ExtResource("2_4xce3")
+region = Rect2(438, 0, 219, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdwn"]
+atlas = ExtResource("2_4xce3")
+region = Rect2(0, 0, 219, 119)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn2o0"]
+atlas = ExtResource("3_yn7t1")
+region = Rect2(0, 0, 260, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqqaa"]
+atlas = ExtResource("3_yn7t1")
+region = Rect2(260, 0, 260, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srbuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckelm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb3hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvdwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn2o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqqaa")
+}],
+"loop": true,
+"name": &"movimiento",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0atsf"]
+size = Vector2(85, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcn31"]
+radius = 18.0
+
+[node name="Murcielago" type="CharacterBody2D" unique_id=1528929188]
+script = ExtResource("1_lcn31")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1802309409]
+position = Vector2(435.74997, 396.75)
+scale = Vector2(0.5456621, 0.63445383)
+sprite_frames = SubResource("SpriteFrames_srbuf")
+animation = &"movimiento"
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=526989108]
+position = Vector2(444.25, 405.75)
+shape = SubResource("RectangleShape2D_0atsf")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=486083898]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1118630240]
+shape = SubResource("CircleShape2D_lcn31")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

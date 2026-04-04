@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt6nhdmmlgagw"
-path="res://.godot/imported/Enemy1Right.png-07167dee75732bc3c66e2a858fedad32.ctex"
+uid="uid://vddl3y7074sj"
+path="res://.godot/imported/Puerta.png-f5b0e3cfdd3f1f3083c0337a45c00d23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scences/spriter/Enemy1Right.png"
-dest_files=["res://.godot/imported/Enemy1Right.png-07167dee75732bc3c66e2a858fedad32.ctex"]
+source_file="res://assets/Map/Puerta.png"
+dest_files=["res://.godot/imported/Puerta.png-f5b0e3cfdd3f1f3083c0337a45c00d23.ctex"]
 
 [params]
 

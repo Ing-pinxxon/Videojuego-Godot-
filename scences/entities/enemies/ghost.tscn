@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dh8ubt0e4bj3i"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://Enemy/ghost.gd" id="1_7ubug"]
-[ext_resource type="Texture2D" uid="uid://83yiq6so8mou" path="res://scences/spriter/Enemy1Left.png" id="2_v2qct"]
-[ext_resource type="Texture2D" uid="uid://dt6nhdmmlgagw" path="res://scences/spriter/Enemy1Right.png" id="3_svwsq"]
+[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/ghost.gd" id="1_7ubug"]
+[ext_resource type="Texture2D" uid="uid://83yiq6so8mou" path="res://assets/sprites/enemies/Enemy1Left.png" id="2_v2qct"]
+[ext_resource type="Texture2D" uid="uid://dt6nhdmmlgagw" path="res://assets/sprites/enemies/Enemy1Right.png" id="3_svwsq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ubug"]
 radius = 15.033297
@@ -80,11 +80,10 @@ animations = [{
 radius = 18.0
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1857393775]
-position = Vector2(4, 49)
+position = Vector2(310, 209)
 script = ExtResource("1_7ubug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806678952]
-position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_7ubug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=840650454]
@@ -97,7 +96,6 @@ frame = 3
 [node name="Hitbox" type="Area2D" parent="." unique_id=840650455]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=840650456]
-position = Vector2(0, 0)
 shape = SubResource("CircleShape2D_hitbox")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
