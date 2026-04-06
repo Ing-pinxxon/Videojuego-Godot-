@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1m6mr8msnirv"
-path="res://.godot/imported/Mapa Mundo Vampiro.png-99aa93decfd7b001ae20d049f0aa16a8.ctex"
+uid="uid://b38pdn4n4l6ym"
+path="res://.godot/imported/mundo_bestia.png-679a6f2ae814a605d91b2fc24b1adc05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Map/Mundo_Vampiro/Mapa Mundo Vampiro.png"
-dest_files=["res://.godot/imported/Mapa Mundo Vampiro.png-99aa93decfd7b001ae20d049f0aa16a8.ctex"]
+source_file="res://assets/Map/mundo_bestia.png"
+dest_files=["res://.godot/imported/mundo_bestia.png-679a6f2ae814a605d91b2fc24b1adc05.ctex"]
 
 [params]
 

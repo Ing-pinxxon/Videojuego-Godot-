@@ -63,10 +63,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0atsf"]
-size = Vector2(85, 41)
+size = Vector2(87.5, 39.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcn31"]
-size = Vector2(76, 32)
+size = Vector2(81, 41)
 
 [node name="Murcielago" type="CharacterBody2D" unique_id=1528929188]
 script = ExtResource("1_lcn31")
@@ -79,18 +79,18 @@ animation = &"movimiento"
 frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=526989108]
-position = Vector2(978.18616, 808.6765)
+position = Vector2(1004.25, 831.75)
 shape = SubResource("RectangleShape2D_0atsf")
 
 [node name="Hitbox2" type="Area2D" parent="." unique_id=486083898]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2" unique_id=1118630240]
-position = Vector2(977.18616, 809.6765)
+position = Vector2(1006.5, 826.5)
 shape = SubResource("RectangleShape2D_lcn31")
 
 [node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_4xce3")]
-position = Vector2(929, 637)
+position = Vector2(541, 545)
 
 [connection signal="area_entered" from="Hitbox2" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox2" to="." method="_on_hitbox_body_entered"]

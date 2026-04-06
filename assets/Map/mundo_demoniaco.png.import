@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch2urs1oypdl3"
-path="res://.godot/imported/Mundo_Fantasma.png-8055a2511dc08cf8e47f934ae5ca834b.ctex"
+uid="uid://bbux3c44h13ki"
+path="res://.godot/imported/mundo_demoniaco.png-8ef7175ce5199ea8d17f352eac49a2ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Map/Mundo_Fantasmas/Mundo_Fantasma.png"
-dest_files=["res://.godot/imported/Mundo_Fantasma.png-8055a2511dc08cf8e47f934ae5ca834b.ctex"]
+source_file="res://assets/Map/mundo_demoniaco.png"
+dest_files=["res://.godot/imported/mundo_demoniaco.png-8ef7175ce5199ea8d17f352eac49a2ba.ctex"]
 
 [params]
 

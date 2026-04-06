@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vddl3y7074sj"
-path="res://.godot/imported/Puerta.png-f5b0e3cfdd3f1f3083c0337a45c00d23.ctex"
+uid="uid://brogy0wv2c1fm"
+path="res://.godot/imported/mundo_bruja.png-744cb1243bcee1b10923880f226d0dc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Map/Puerta.png"
-dest_files=["res://.godot/imported/Puerta.png-f5b0e3cfdd3f1f3083c0337a45c00d23.ctex"]
+source_file="res://assets/Map/mundo_bruja.png"
+dest_files=["res://.godot/imported/mundo_bruja.png-744cb1243bcee1b10923880f226d0dc1.ctex"]
 
 [params]
 
