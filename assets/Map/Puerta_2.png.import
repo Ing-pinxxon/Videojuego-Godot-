@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7frby6nurah7"
-path="res://.godot/imported/mundo_Final.png-51a937155e3b6dc1148dea34c1a9638e.ctex"
+uid="uid://cca83njqdofbs"
+path="res://.godot/imported/Puerta_2.png-2a1c1fc9637894297409ecd1cbbf2d53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Map/mundo_Final.png"
-dest_files=["res://.godot/imported/mundo_Final.png-51a937155e3b6dc1148dea34c1a9638e.ctex"]
+source_file="res://assets/Map/Puerta_2.png"
+dest_files=["res://.godot/imported/Puerta_2.png-2a1c1fc9637894297409ecd1cbbf2d53.ctex"]
 
 [params]
 

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dsmk4xo67xaqv"]
+
+[ext_resource type="PackedScene" uid="uid://bcg222sdnn78v" path="res://scences/rooms/Room_Sombra.tscn" id="1_cr2ag"]
+[ext_resource type="PackedScene" uid="uid://csdu0cvqfb00o" path="res://scences/rooms/Room_Esqueleto.tscn" id="2_11s1o"]
+[ext_resource type="PackedScene" uid="uid://lpkseh6gfp64" path="res://scences/rooms/Room_Fantasma.tscn" id="3_uppkd"]
+[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scences/rooms/Room_Zombi.tscn" id="4_4auml"]
+[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scences/rooms/Room_Jefe_Final.tscn" id="5_smpec"]
+[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scences/rooms/Room_Bestia.tscn" id="6_8ug5n"]
+[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scences/rooms/Room_Vampiro.tscn" id="7_b8o06"]
+[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scences/rooms/Room_Demoniaco.tscn" id="8_71dgd"]
+[ext_resource type="PackedScene" uid="uid://dd7q22j6xre2p" path="res://scences/rooms/Room_Bruja.tscn" id="9_iy3j8"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="10_11s1o"]
+
+[node name="Prueba" type="Node2D" unique_id=1083429043 groups=["Player", "player"]]
+
+[node name="RoomSombra" parent="." unique_id=1024952739 instance=ExtResource("1_cr2ag")]
+position = Vector2(-1, -3)
+
+[node name="RoomEsqueleto" parent="." unique_id=1121409267 instance=ExtResource("2_11s1o")]
+position = Vector2(3, -1026)
+
+[node name="RoomFantasma" parent="." unique_id=1847147422 instance=ExtResource("3_uppkd")]
+position = Vector2(-16, -2035)
+
+[node name="RoomZombi" parent="." unique_id=1807234703 instance=ExtResource("4_4auml")]
+position = Vector2(-1519, -2047)
+
+[node name="RoomJefeFinal" parent="." unique_id=692196145 instance=ExtResource("5_smpec")]
+position = Vector2(-1531, -1029)
+
+[node name="RoomBestia" parent="." unique_id=1224617533 instance=ExtResource("6_8ug5n")]
+position = Vector2(-1518, -4)
+
+[node name="RoomVampiro" parent="." unique_id=654152139 instance=ExtResource("7_b8o06")]
+position = Vector2(-3026, -2043)
+
+[node name="RoomDemoniaco" parent="." unique_id=636172302 instance=ExtResource("8_71dgd")]
+position = Vector2(-3016, -1022)
+
+[node name="RoomBruja" parent="." unique_id=1754992662 instance=ExtResource("9_iy3j8")]
+position = Vector2(-3032, -8)
+
+[node name="Player" parent="." unique_id=273606343 instance=ExtResource("10_11s1o")]
+position = Vector2(247, 450)
