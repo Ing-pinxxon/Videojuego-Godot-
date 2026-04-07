@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dt6nhdmmlgagw" path="res://assets/sprites/enemies/Enemy1Right.png" id="3_svwsq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ubug"]
-radius = 15.033297
+radius = 45.39824
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kb7lc"]
 atlas = ExtResource("2_v2qct")
@@ -77,25 +77,28 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
-radius = 18.0
+radius = 50.0
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1857393775]
 position = Vector2(310, 209)
 script = ExtResource("1_7ubug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806678952]
+position = Vector2(34, 18)
 shape = SubResource("CircleShape2D_7ubug")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=840650454]
-position = Vector2(0, 3.5)
-scale = Vector2(2.5, 1.9374998)
+position = Vector2(34, 17.999998)
+scale = Vector2(6.25, 5.4374995)
 sprite_frames = SubResource("SpriteFrames_n5ih8")
 animation = &"walkRight"
 frame = 3
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=840650455]
+position = Vector2(33, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=840650456]
+position = Vector2(3, 1)
 shape = SubResource("CircleShape2D_hitbox")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

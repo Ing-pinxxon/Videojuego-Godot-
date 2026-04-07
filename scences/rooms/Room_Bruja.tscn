@@ -6155,7 +6155,7 @@ texture = ExtResource("1_8mck2")
 sources/0 = SubResource("TileSetAtlasSource_tidmb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itrd3"]
-size = Vector2(157, 54)
+size = Vector2(157, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kaysq"]
 atlas = ExtResource("3_itrd3")
@@ -6198,7 +6198,7 @@ collision_layer = 2
 script = ExtResource("3_7nske")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=79771489]
-position = Vector2(1076.5, 36)
+position = Vector2(1076.5, 34)
 shape = SubResource("RectangleShape2D_itrd3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=163250163 groups=["Player"]]
