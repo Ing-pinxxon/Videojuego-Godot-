@@ -10,7 +10,7 @@ var health = max_health
 var can_attack = true
 var is_attacking = false
 
-var last_direction = "down"
+var last_direction = "up"
 var is_invincible = false
 @export var invincibility_duration = 1.0
 

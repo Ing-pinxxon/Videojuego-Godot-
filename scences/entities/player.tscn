@@ -582,26 +582,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p4d"]
-size = Vector2(46, 83)
+size = Vector2(51, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lowl5"]
-size = Vector2(45, 86)
+size = Vector2(53, 78)
 
 [node name="Player" type="CharacterBody2D" unique_id=273606343]
-position = Vector2(336, 163)
+position = Vector2(44, 71)
 script = ExtResource("1_3j5lm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2d" type="AnimatedSprite2D" parent="." unique_id=811798934]
-position = Vector2(42.000004, 45.999992)
-scale = Vector2(6.250001, 6.749999)
+position = Vector2(32.5, 36.5)
+scale = Vector2(5.0625, 5.5625)
 sprite_frames = SubResource("SpriteFrames_ikh6d")
 animation = &"idle_down"
 autoplay = "idle_down"
 frame_progress = 0.96274495
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474151542]
-position = Vector2(44, 40.5)
+position = Vector2(31.5, 32)
 shape = SubResource("RectangleShape2D_u4p4d")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=813945899]
@@ -610,10 +610,10 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1370673894]
-position = Vector2(35.5, 42)
+position = Vector2(23.5, 32)
 shape = SubResource("RectangleShape2D_lowl5")
 debug_color = Color(0.9, 0.1, 0.1, 0.4)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=310329592]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2099787902]
 zoom = Vector2(1.8, 1.8)

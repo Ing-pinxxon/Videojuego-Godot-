@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bmdvkjki70v5y"]
+
+[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scences/rooms/Room_Vampiro.tscn" id="1_6qwbu"]
+[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scences/rooms/Room_Demoniaco.tscn" id="2_ntmsy"]
+[ext_resource type="PackedScene" uid="uid://dd7q22j6xre2p" path="res://scences/rooms/Room_Bruja.tscn" id="3_wdm1r"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_ubtgi"]
+
+[node name="Juego2" type="Node2D" unique_id=248459474]
+
+[node name="RoomVampiro" parent="." unique_id=654152139 instance=ExtResource("1_6qwbu")]
+position = Vector2(-6, -2037)
+
+[node name="RoomDemoniaco" parent="." unique_id=636172302 instance=ExtResource("2_ntmsy")]
+position = Vector2(-8, -1014)
+
+[node name="RoomBruja" parent="." unique_id=1754992662 instance=ExtResource("3_wdm1r")]
+position = Vector2(9, 0)
+
+[node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_ubtgi")]
+position = Vector2(1195, 765)

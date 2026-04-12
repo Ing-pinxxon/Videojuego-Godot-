@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://rc6fqupedjup"]
+
+[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scences/rooms/Room_Jefe_Final.tscn" id="1_rgnon"]
+[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scences/rooms/Room_Zombi.tscn" id="2_b0kig"]
+[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scences/rooms/Room_Bestia.tscn" id="3_usixy"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_nkn3d"]
+
+[node name="Nivel_3" type="Node2D" unique_id=1969872151]
+
+[node name="RoomJefeFinal" parent="." unique_id=692196145 instance=ExtResource("1_rgnon")]
+position = Vector2(2, -2047)
+
+[node name="RoomZombi" parent="." unique_id=1807234703 instance=ExtResource("2_b0kig")]
+position = Vector2(0, -1024)
+
+[node name="RoomBestia" parent="." unique_id=1224617533 instance=ExtResource("3_usixy")]
+position = Vector2(10, -4)
+
+[node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_nkn3d")]
+position = Vector2(739, 857)

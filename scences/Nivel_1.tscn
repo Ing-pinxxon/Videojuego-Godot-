@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dsmk4xo67xaqv"]
+
+[ext_resource type="PackedScene" uid="uid://bcg222sdnn78v" path="res://scences/rooms/Room_Sombra.tscn" id="1_erx0v"]
+[ext_resource type="PackedScene" uid="uid://csdu0cvqfb00o" path="res://scences/rooms/Room_Esqueleto.tscn" id="2_aouko"]
+[ext_resource type="PackedScene" uid="uid://lpkseh6gfp64" path="res://scences/rooms/Room_Fantasma.tscn" id="3_7s4eu"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="7_45vmr"]
+
+[node name="Prueba" type="Node2D" unique_id=1083429043 groups=["Player", "player"]]
+position = Vector2(0, -1)
+
+[node name="RoomSombra" parent="." unique_id=1024952739 instance=ExtResource("1_erx0v")]
+position = Vector2(-1, -3)
+
+[node name="RoomEsqueleto" parent="." unique_id=1121409267 instance=ExtResource("2_aouko")]
+position = Vector2(3, -1026)
+
+[node name="RoomFantasma" parent="." unique_id=1847147422 instance=ExtResource("3_7s4eu")]
+position = Vector2(-16, -2035)
+
+[node name="Player" parent="." unique_id=273606343 instance=ExtResource("7_45vmr")]
+position = Vector2(247, 450)
