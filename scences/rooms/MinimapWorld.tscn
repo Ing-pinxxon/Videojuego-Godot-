@@ -15,12 +15,21 @@
 script = ExtResource("1_4nr1a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=911974515 groups=["HintPuerta", "Player", "Player1"]]
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.14, 0.14)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=571169940]
+offset_left = -5498.0
+offset_top = -3660.0
+offset_right = 5436.0
+offset_bottom = 3555.0
+color = Color(0.012617188, 0.0004491884, 0.012617188, 1)
 
 [node name="Rooms" type="Node2D" parent="." unique_id=633184976]
 
 [node name="RoomSombra" parent="Rooms" unique_id=1024952739 instance=ExtResource("2_8mgia")]
 position = Vector2(864, 619)
+
+[node name="Sprite2D" type="Sprite2D" parent="Rooms/RoomSombra" unique_id=2127468698]
 
 [node name="RoomEsqueleto" parent="Rooms" unique_id=1121409267 instance=ExtResource("3_88a1u")]
 position = Vector2(856, -398)

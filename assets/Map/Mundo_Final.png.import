@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7frby6nurah7"
-path="res://.godot/imported/mundo_Final.png-51a937155e3b6dc1148dea34c1a9638e.ctex"
+path="res://.godot/imported/Mundo_Final.png-b52fa4414025c2e51aece001f7ce2ceb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Map/mundo_Final.png"
-dest_files=["res://.godot/imported/mundo_Final.png-51a937155e3b6dc1148dea34c1a9638e.ctex"]
+source_file="res://assets/Map/Mundo_Final.png"
+dest_files=["res://.godot/imported/Mundo_Final.png-b52fa4414025c2e51aece001f7ce2ceb.ctex"]
 
 [params]
 

@@ -100,8 +100,11 @@ func attack():
 		attack_area.visible = true
 		print("DEBUG: AttackArea activado en pos: ", attack_area.position)
 	
+	if not is_inside_tree(): return
 	# Desactivar área (0.4s para coincidir con la animación)
 	await get_tree().create_timer(0.4).timeout
+	if not is_inside_tree(): return
+	
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.monitorable = false
@@ -110,6 +113,7 @@ func attack():
 	
 	# Esperar a que la animación termine (6 frames a 10fps = 0.6s)
 	await get_tree().create_timer(0.4).timeout
+	if not is_inside_tree(): return
 	
 	is_attacking = false
 	can_attack = true
@@ -159,6 +163,7 @@ func take_damage(amount: int):
 	if health <= 0:
 		die()
 	else:
+		if not is_inside_tree(): return
 		await get_tree().create_timer(invincibility_duration).timeout
 		is_invincible = false
 
@@ -180,8 +185,8 @@ func _update_hearts():
 		hearts_container.add_child(heart)
 
 func die():
-	print("Jugador derrotado!")
-	queue_free()
+	print("Jugador derrotado! Volviendo al Nivel 1...")
+	get_tree().change_scene_to_file("res://scences/Nivel_1.tscn")
 
 func _on_attack_area_entered(area):
 	print("DEBUG: Player AttackArea entró en: ", area.name, " del objeto: ", area.get_parent().name)

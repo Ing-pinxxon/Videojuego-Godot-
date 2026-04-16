@@ -124,5 +124,6 @@ func _on_hitbox_body_entered(body):
 	if (body.is_in_group("player") or body.name == "Player") and body.has_method("take_damage"):
 		body.take_damage(damage_to_player)
 		can_damage = false
+		if not is_inside_tree(): return
 		await get_tree().create_timer(damage_cooldown).timeout
 		can_damage = true
