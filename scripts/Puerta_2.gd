@@ -101,7 +101,6 @@ func _on_body_entered(body):
 		# Activa la interacción
 		jugador_dentro = true
 
-
 func _on_body_exited(body):
 	# Se ejecuta cuando un cuerpo sale del área
 	

@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://rc6fqupedjup"]
 
 [ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scences/rooms/Room_Jefe_Final.tscn" id="1_rgnon"]
+[ext_resource type="Script" uid="uid://umyrcgffpkw4" path="res://scripts/nivel.gd" id="1_usixy"]
 [ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scences/rooms/Room_Zombi.tscn" id="2_b0kig"]
 [ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scences/rooms/Room_Bestia.tscn" id="3_usixy"]
 [ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_nkn3d"]
+[ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scences/rooms/MinimapWorld.tscn" id="5_b0kig"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_usixy"]
+viewport_path = NodePath("CanvasLayer/TextureRect/SubViewportContainer/SubViewport")
 
 [node name="Nivel_3" type="Node2D" unique_id=1969872151]
+script = ExtResource("1_usixy")
 
 [node name="RoomJefeFinal" parent="." unique_id=692196145 instance=ExtResource("1_rgnon")]
 position = Vector2(2, -2047)
@@ -18,3 +24,38 @@ position = Vector2(10, -4)
 
 [node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_nkn3d")]
 position = Vector2(739, 857)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=859759922]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1733284486]
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.518
+anchor_right = 0.54
+anchor_bottom = 0.518
+offset_left = -449.44006
+offset_top = -450.432
+offset_right = 450.55994
+offset_bottom = 449.568
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("ViewportTexture_usixy")
+stretch_mode = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/TextureRect" unique_id=1754692676]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 1000.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/TextureRect/SubViewportContainer" unique_id=176950868]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1000, 1000)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="MinimapWorld" parent="CanvasLayer/TextureRect/SubViewportContainer/SubViewport" unique_id=49378536 instance=ExtResource("5_b0kig")]
