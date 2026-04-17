@@ -14,6 +14,10 @@ config/name="juego_prueba"
 run/main_scene="uid://cljdqputudr4m"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
+[autoload]
+
+GlobalState="*res://scripts/global_state.gd"
+
 [display]
 
 window/size/viewport_width=1536
@@ -71,7 +75,3 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-
-[autoload]
-
-GlobalState="*res://scripts/global_state.gd"

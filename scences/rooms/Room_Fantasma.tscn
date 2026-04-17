@@ -6214,9 +6214,6 @@ shape = SubResource("RectangleShape2D_c1hq5")
 position = Vector2(754, 102.5)
 shape = SubResource("RectangleShape2D_qyp7b")
 
-[node name="Ghost" parent="." unique_id=1857393775 instance=ExtResource("4_ngqh1")]
-position = Vector2(1024, 314)
-
 [node name="Ghost2" parent="." unique_id=1980534335 instance=ExtResource("4_ngqh1")]
 position = Vector2(489, 323)
 
