@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://lpkseh6gfp64" path="res://scences/rooms/Room_Fantasma.tscn" id="3_7s4eu"]
 [ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scences/rooms/MinimapWorld.tscn" id="6_qedgh"]
 [ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="7_45vmr"]
+[ext_resource type="PackedScene" uid="uid://bcl75g8okfkby" path="res://scences/entities/enemies/Sombra.tscn" id="7_aouko"]
+[ext_resource type="PackedScene" uid="uid://ff74ixyw2j6y" path="res://scences/entities/enemies/Esqueleto.tscn" id="8_7s4eu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_erx0v"]
 viewport_path = NodePath("CanvasLayer/TextureRect/SubViewportContainer/SubViewport")
@@ -24,7 +26,7 @@ position = Vector2(3, -1026)
 position = Vector2(-1, -2035)
 
 [node name="Player" parent="." unique_id=273606343 groups=["Player", "player"] instance=ExtResource("7_45vmr")]
-position = Vector2(247, 450)
+position = Vector2(1065, 784)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=393480662]
 
@@ -60,3 +62,15 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="MinimapWorld" parent="CanvasLayer/TextureRect/SubViewportContainer/SubViewport" unique_id=49378536 instance=ExtResource("6_qedgh")]
+
+[node name="Sombra" parent="." unique_id=35652048 instance=ExtResource("7_aouko")]
+position = Vector2(95, 570)
+
+[node name="Sombra2" parent="." unique_id=1791307462 instance=ExtResource("7_aouko")]
+position = Vector2(380, 98)
+
+[node name="Esqueleto" parent="." unique_id=1694021682 instance=ExtResource("8_7s4eu")]
+position = Vector2(-6, -503)
+
+[node name="Esqueleto2" parent="." unique_id=1031462432 instance=ExtResource("8_7s4eu")]
+position = Vector2(767, -924)

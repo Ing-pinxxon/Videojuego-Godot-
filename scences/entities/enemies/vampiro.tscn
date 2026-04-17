@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ccp2t2spnc4ef"]
+
+[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_p5rpu"]
+[ext_resource type="Texture2D" uid="uid://bgmqicielmp03" path="res://assets/sprites/enemies/Vampiro.png" id="1_xmf6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5rpu"]
+size = Vector2(72, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqioe"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(0, 232, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa6u7"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(127, 232, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38qfd"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(254, 232, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj3rg"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(381, 232, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r51fj"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(381, 116, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0tp0"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(254, 116, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlc56"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(127, 116, 127, 116)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b7k3"]
+atlas = ExtResource("1_xmf6a")
+region = Rect2(0, 116, 127, 116)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xidi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqioe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa6u7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38qfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj3rg")
+}],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r51fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0tp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlc56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b7k3")
+}],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aafue"]
+size = Vector2(71.875, 79.75)
+
+[node name="Vampiro" type="CharacterBody2D" unique_id=849875602]
+script = ExtResource("1_p5rpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=736760495]
+position = Vector2(656, 526)
+shape = SubResource("RectangleShape2D_p5rpu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337312844]
+position = Vector2(631, 533)
+scale = Vector2(0.9015743, 0.7844828)
+sprite_frames = SubResource("SpriteFrames_xidi6")
+animation = &"walkRight"
+frame = 3
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1123143215]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1069696664]
+position = Vector2(660.9375, 529)
+shape = SubResource("RectangleShape2D_aafue")

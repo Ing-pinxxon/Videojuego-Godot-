@@ -25,8 +25,8 @@ func _ready():
 	# Inicialización UI de Corazones
 	hearts_container = HBoxContainer.new()
 	hearts_container.alignment = BoxContainer.ALIGNMENT_CENTER
-	# Posición encima del fantasma
-	hearts_container.position = Vector2(550, 60) # Ajustado al offset de la escena de Mayerli
+	# Posición inicial (se ajustara un frame depues)
+	hearts_container.position = Vector2(550, 60)
 	hearts_container.size = Vector2(60, 20)
 	
 	add_child(hearts_container)
@@ -65,8 +65,8 @@ func _physics_process(delta):
 		move_and_slide()
 		updateAnimation()
 		
-		# Ajustar posición del contenedor de corazones (Centrado sobre el fantasma)
-		var relative_offset = Vector2(-30, -35) 
+		# Ajustar posición del contenedor de corazones centrado sobre el sprite animado
+		var relative_offset = animations.position + Vector2(-38, -80) 
 		hearts_container.position = relative_offset
 		
 		# Daño por contacto (se maneja principalmente por señales, pero el bucle permite daño continuo si se queda pegado)
@@ -103,7 +103,7 @@ func _update_hearts():
 		heart.texture = heart_texture
 		heart.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		heart.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		heart.custom_minimum_size = Vector2(5, 5)
+		heart.custom_minimum_size = Vector2(10, 10)
 		heart.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		hearts_container.add_child(heart)
 

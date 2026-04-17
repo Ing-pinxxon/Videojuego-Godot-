@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ff74ixyw2j6y"]
+
+[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_j5rjh"]
+[ext_resource type="Texture2D" uid="uid://c4ovaxmsbaf2e" path="res://assets/sprites/enemies/Esqueleto.png" id="1_lqxmc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5rjh"]
+radius = 49.335587
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7uo"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(1416, 444, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4qj"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(944, 444, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haxfh"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(472, 444, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1eim"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(0, 444, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyx1f"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(0, 0, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1r42"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(472, 0, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfmfw"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(944, 0, 472, 444)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m315u"]
+atlas = ExtResource("1_lqxmc")
+region = Rect2(1416, 0, 472, 444)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnnb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haxfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1eim")
+}],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyx1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1r42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfmfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m315u")
+}],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s60dy"]
+radius = 45.54119
+
+[node name="Esqueleto" type="CharacterBody2D" unique_id=1694021682]
+script = ExtResource("1_j5rjh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2011916562]
+position = Vector2(348, 289)
+shape = SubResource("CircleShape2D_j5rjh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=562994743]
+position = Vector2(351, 294.75003)
+scale = Vector2(0.19491524, 0.19481972)
+sprite_frames = SubResource("SpriteFrames_vnnb2")
+animation = &"walkRight"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1253219414]
+position = Vector2(33, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=18609466]
+position = Vector2(314, 275)
+shape = SubResource("CircleShape2D_s60dy")

@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dd7q22j6xre2p" path="res://scences/rooms/Room_Bruja.tscn" id="3_wdm1r"]
 [ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_ubtgi"]
 [ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scences/rooms/MinimapWorld.tscn" id="5_ntmsy"]
+[ext_resource type="PackedScene" uid="uid://bebf3nwot65qt" path="res://scences/entities/enemies/Brujo.tscn" id="7_onx3n"]
+[ext_resource type="PackedScene" uid="uid://c3xpf1jh01g8u" path="res://scences/entities/enemies/Demonio.tscn" id="8_f77x0"]
+[ext_resource type="PackedScene" uid="uid://ccp2t2spnc4ef" path="res://scences/entities/enemies/vampiro.tscn" id="9_wk5vm"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wdm1r"]
 viewport_path = NodePath("CanvasLayer/TextureRect/SubViewportContainer/SubViewport")
@@ -59,3 +62,15 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="MinimapWorld" parent="CanvasLayer/TextureRect/SubViewportContainer/SubViewport" unique_id=49378536 instance=ExtResource("5_ntmsy")]
+
+[node name="Brujo" parent="." unique_id=253996987 instance=ExtResource("7_onx3n")]
+position = Vector2(96, -287)
+
+[node name="Demonio" parent="." unique_id=1582164811 instance=ExtResource("8_f77x0")]
+position = Vector2(635, -405)
+
+[node name="Demonio2" parent="." unique_id=1868182925 instance=ExtResource("8_f77x0")]
+position = Vector2(321, -731)
+
+[node name="Vampiro" parent="." unique_id=849875602 instance=ExtResource("9_wk5vm")]
+position = Vector2(150, -2259)

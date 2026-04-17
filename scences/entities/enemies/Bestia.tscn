@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://s6ie30pby71"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de0es"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42g5d"]
+radius = 50.0
+
+[node name="Bestia" type="CharacterBody2D" unique_id=495155128]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1275648385]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1548608382]
+sprite_frames = SubResource("SpriteFrames_de0es")
+animation = &"walkLeft"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1886173929]
+position = Vector2(33, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=167519348]
+position = Vector2(278, 204)
+shape = SubResource("CircleShape2D_42g5d")

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://c3xpf1jh01g8u"]
+
+[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_ewwuh"]
+[ext_resource type="Texture2D" uid="uid://boym4egtorn5j" path="res://assets/sprites/enemies/Demonio.png" id="1_nn6v0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewwuh"]
+size = Vector2(54, 75.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7087g"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(0, 303, 83, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_truwk"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(83, 303, 83, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vv3v"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(166, 303, 83, 101)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0us6"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(415, 196, 83, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pd8pn"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(249, 196, 83, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5w0y"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(83, 196, 83, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etwgd"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(0, 196, 83, 98)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhoux"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(83, 300, 83, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu7cv"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(166, 300, 83, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ostbw"]
+atlas = ExtResource("1_nn6v0")
+region = Rect2(0, 300, 83, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62ixg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7087g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_truwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vv3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0us6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pd8pn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5w0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etwgd")
+}],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhoux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu7cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ostbw")
+}],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjclw"]
+size = Vector2(51.5, 72.5)
+
+[node name="Demonio" type="CharacterBody2D" unique_id=1582164811]
+script = ExtResource("1_ewwuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073659041]
+position = Vector2(332, 180.25)
+shape = SubResource("RectangleShape2D_ewwuh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1181532082]
+position = Vector2(326.75, 177)
+scale = Vector2(0.8253013, 0.73999995)
+sprite_frames = SubResource("SpriteFrames_62ixg")
+animation = &"walkRight"
+frame = 2
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=680005563]
+position = Vector2(33, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1012299946]
+position = Vector2(299.25, 162.75)
+shape = SubResource("RectangleShape2D_kjclw")
