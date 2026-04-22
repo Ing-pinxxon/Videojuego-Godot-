@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cljdqputudr4m"]
 
-[ext_resource type="PackedScene" uid="uid://dvt42vn2x5cqs" path="res://scences/rooms/Map.tscn" id="1_iaq0h"]
-[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scences/entities/enemies/ghost.tscn" id="2_safhr"]
+[ext_resource type="PackedScene" path="res://scences/rooms/Map.tscn" id="1_iaq0h"]
+[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scences/entities/enemies/Ghost.tscn" id="2_safhr"]
 [ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="3_c0lbt"]
 
 [node name="PrimeraParte" type="Node2D" unique_id=1049247597]

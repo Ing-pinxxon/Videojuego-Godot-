@@ -77,7 +77,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
-radius = 50.0
+radius = 60.033325
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1857393775]
 position = Vector2(310, 209)
@@ -98,7 +98,7 @@ frame = 3
 position = Vector2(33, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=840650456]
-position = Vector2(3, 1)
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_hitbox")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

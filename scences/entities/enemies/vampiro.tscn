@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bgmqicielmp03" path="res://assets/sprites/enemies/Vampiro.png" id="1_xmf6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5rpu"]
-size = Vector2(72, 73)
+size = Vector2(53, 88)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqioe"]
 atlas = ExtResource("1_xmf6a")
@@ -76,18 +76,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aafue"]
-size = Vector2(71.875, 79.75)
+size = Vector2(79, 111.875)
 
 [node name="Vampiro" type="CharacterBody2D" unique_id=849875602]
 script = ExtResource("1_p5rpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=736760495]
-position = Vector2(656, 526)
+position = Vector2(663.5, 512)
 shape = SubResource("RectangleShape2D_p5rpu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337312844]
-position = Vector2(631, 533)
-scale = Vector2(0.9015743, 0.7844828)
+position = Vector2(646, 518.25)
+scale = Vector2(0.8976377, 1.038793)
 sprite_frames = SubResource("SpriteFrames_xidi6")
 animation = &"walkRight"
 frame = 3
@@ -95,5 +95,8 @@ frame = 3
 [node name="Hitbox" type="Area2D" parent="." unique_id=1123143215]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1069696664]
-position = Vector2(660.9375, 529)
+position = Vector2(664.5, 512.9375)
 shape = SubResource("RectangleShape2D_aafue")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

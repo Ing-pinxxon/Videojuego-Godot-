@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dhf3qbo36ccxs" path="res://assets/Map/mundo_fantasma.png" id="1_aefap"]
 [ext_resource type="Script" uid="uid://c5aop8jibgusx" path="res://scripts/Puerta_2.gd" id="2_x554b"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_ngqh1"]
-[ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scences/entities/enemies/ghost.tscn" id="4_ngqh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aefap"]
 texture = ExtResource("1_aefap")
@@ -8846,9 +8845,6 @@ shape = SubResource("RectangleShape2D_c1hq5")
 [node name="CollisionShape2D_Bloqueo2" type="CollisionShape2D" parent="StaticBody2D" unique_id=219251763]
 position = Vector2(754, 102.5)
 shape = SubResource("RectangleShape2D_qyp7b")
-
-[node name="Ghost2" parent="." unique_id=1980534335 instance=ExtResource("4_ngqh1")]
-position = Vector2(489, 323)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

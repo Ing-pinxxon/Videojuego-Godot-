@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_j5rjh"]
 [ext_resource type="Texture2D" uid="uid://c4ovaxmsbaf2e" path="res://assets/sprites/enemies/Esqueleto.png" id="1_lqxmc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j5rjh"]
-radius = 49.335587
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rjh"]
+size = Vector2(59, 95)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n7uo"]
 atlas = ExtResource("1_lqxmc")
@@ -75,19 +75,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s60dy"]
-radius = 45.54119
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n7uo"]
+size = Vector2(98, 128)
 
 [node name="Esqueleto" type="CharacterBody2D" unique_id=1694021682]
 script = ExtResource("1_j5rjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2011916562]
-position = Vector2(348, 289)
-shape = SubResource("CircleShape2D_j5rjh")
+position = Vector2(355.5, 296.5)
+shape = SubResource("RectangleShape2D_j5rjh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=562994743]
-position = Vector2(351, 294.75003)
-scale = Vector2(0.19491524, 0.19481972)
+position = Vector2(354, 293)
+scale = Vector2(0.26430085, 0.30546167)
 sprite_frames = SubResource("SpriteFrames_vnnb2")
 animation = &"walkRight"
 
@@ -95,5 +95,8 @@ animation = &"walkRight"
 position = Vector2(33, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=18609466]
-position = Vector2(314, 275)
-shape = SubResource("CircleShape2D_s60dy")
+position = Vector2(322, 278)
+shape = SubResource("RectangleShape2D_7n7uo")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var max_health = 3
+@export var max_health = 2
 @export var damage_to_player = 1
 @export var speed = 100
 @export var limit = 0.5

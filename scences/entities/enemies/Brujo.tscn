@@ -3,20 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://baqskfka71qne" path="res://assets/sprites/enemies/Brujo.png" id="1_d67u2"]
 [ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_ii3i3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii3i3"]
-size = Vector2(64, 76)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nufoh"]
+radius = 53.15073
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii3i3"]
+atlas = ExtResource("1_d67u2")
+region = Rect2(0, 0, 104, 116)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8525c"]
 atlas = ExtResource("1_d67u2")
-region = Rect2(0, 0, 104, 138)
+region = Rect2(104, 0, 104, 116)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nufoh"]
 atlas = ExtResource("1_d67u2")
-region = Rect2(104, 0, 104, 138)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bie5"]
-atlas = ExtResource("1_d67u2")
-region = Rect2(208, 0, 104, 138)
+region = Rect2(208, 0, 104, 116)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n3bd"]
 atlas = ExtResource("1_d67u2")
@@ -34,13 +34,22 @@ region = Rect2(312, 0, 104, 138)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ii3i3")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8525c")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nufoh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4bie5")
+"texture": SubResource("AtlasTexture_ii3i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8525c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nufoh")
 }],
 "loop": true,
 "name": &"walkLeft",
@@ -61,27 +70,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fd8a"]
-size = Vector2(69.5, 77.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4bie5"]
+radius = 81.88406
 
 [node name="Brujo" type="CharacterBody2D" unique_id=253996987]
 script = ExtResource("1_ii3i3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860360401]
-position = Vector2(732.5, 571)
-shape = SubResource("RectangleShape2D_ii3i3")
+position = Vector2(473, 233)
+shape = SubResource("CircleShape2D_nufoh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348240927]
-position = Vector2(731.5, 577)
-scale = Vector2(0.75961536, 0.7536232)
+position = Vector2(464, 232)
+scale = Vector2(1.1586534, 1.1702899)
 sprite_frames = SubResource("SpriteFrames_tgqn8")
-animation = &"walkRight"
+animation = &"walkLeft"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=508593209]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=921158883]
-position = Vector2(729.5, 570)
-shape = SubResource("RectangleShape2D_5fd8a")
+position = Vector2(470, 235)
+shape = SubResource("CircleShape2D_4bie5")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
