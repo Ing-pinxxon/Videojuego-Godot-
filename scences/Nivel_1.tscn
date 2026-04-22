@@ -29,6 +29,9 @@ position = Vector2(-1, -2035)
 [node name="Player" parent="." unique_id=273606343 groups=["Player", "player"] instance=ExtResource("7_45vmr")]
 position = Vector2(1074, 701)
 
+[node name="Sombra2" parent="." unique_id=347460718 instance=ExtResource("6_erx0v")]
+position = Vector2(-135, 500)
+
 [node name="Sombra" parent="." unique_id=35652048 instance=ExtResource("6_erx0v")]
 position = Vector2(609, 129)
 
