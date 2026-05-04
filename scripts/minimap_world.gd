@@ -5,6 +5,7 @@ extends Node2D
 @onready var player_icon = $PlayerIcon
 # Referencia al icono que representa al jugador en el minimapa
 
+
 @onready var color_pantalla = $ColorRect
 # Referencia a un rectángulo de color (fondo del minimapa)
 
@@ -49,6 +50,12 @@ func _ready():
 	
 	for room in $Rooms.get_children():
 		# Recorre todas las salas del minimapa
+		
+		# Limpiar enemigos del minimapa (evita que se vean)
+		var enemies_to_remove = room.find_children("*", "Node2D", true)
+		for child in enemies_to_remove:
+			if child.is_in_group("enemies") or child.name.contains("Enemy"):
+				child.queue_free()
 		
 		var lock_label = Label.new()
 		# Crea un Label para representar el candado
@@ -97,7 +104,7 @@ func _process(_delta):
 			for child in parent.get_children():
 				# Recorre todos los hijos del padre
 				
-				if child.name.begins_with("Room") and child is Node2D:
+				if child.name.begins_with("Room") and child is Node2D and not child.name.begins_with("Enemy"):
 					# Filtra solo nodos que sean salas
 					
 					var center_offset = Vector2(750, 508)

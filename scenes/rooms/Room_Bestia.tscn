@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b38pdn4n4l6ym" path="res://assets/Map/mundo_bestia.png" id="1_ieldu"]
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="2_ootu1"]
+[ext_resource type="PackedScene" uid="uid://s6ie30pby71" path="res://scenes/entities/enemies/Bestia.tscn" id="4_6fai5"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="4_nk3d0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_skhot"]
@@ -8214,6 +8215,9 @@ animation = &"Cerrar"
 light_mask = 3
 position = Vector2(814, 83)
 shape = SubResource("RectangleShape2D_ootu1")
+
+[node name="Enemy" parent="." unique_id=495155128 instance=ExtResource("4_6fai5")]
+position = Vector2(439, 252)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

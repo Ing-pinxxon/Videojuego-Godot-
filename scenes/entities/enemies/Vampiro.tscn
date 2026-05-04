@@ -78,7 +78,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aafue"]
 size = Vector2(79, 111.875)
 
-[node name="Vampiro" type="CharacterBody2D" unique_id=849875602]
+[node name="Vampiro" type="CharacterBody2D" unique_id=849875602 groups=["enemies"]]
 script = ExtResource("1_p5rpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=736760495]

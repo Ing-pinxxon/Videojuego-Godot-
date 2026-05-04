@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://bmdvkjki70v5y"]
 
-[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scences/rooms/Room_Vampiro.tscn" id="1_6qwbu"]
+[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scenes/rooms/Room_Vampiro.tscn" id="1_6qwbu"]
 [ext_resource type="Script" uid="uid://umyrcgffpkw4" path="res://scripts/nivel.gd" id="1_wdm1r"]
-[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scences/rooms/Room_Demoniaco.tscn" id="2_ntmsy"]
-[ext_resource type="PackedScene" uid="uid://1mbofml6kvd6" path="res://scences/rooms/Room_Brujo.tscn" id="3_wdm1r"]
-[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_ubtgi"]
-[ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scences/rooms/MinimapWorld.tscn" id="5_ntmsy"]
-[ext_resource type="PackedScene" uid="uid://bebf3nwot65qt" path="res://scences/entities/enemies/Brujo.tscn" id="7_onx3n"]
-[ext_resource type="PackedScene" uid="uid://c3xpf1jh01g8u" path="res://scences/entities/enemies/Demonio.tscn" id="8_f77x0"]
-[ext_resource type="PackedScene" uid="uid://ccp2t2spnc4ef" path="res://scences/entities/enemies/Vampiro.tscn" id="9_wk5vm"]
+[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scenes/rooms/Room_Demoniaco.tscn" id="2_ntmsy"]
+[ext_resource type="PackedScene" uid="uid://1mbofml6kvd6" path="res://scenes/rooms/Room_Brujo.tscn" id="3_wdm1r"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scenes/entities/player.tscn" id="4_ubtgi"]
+[ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scenes/rooms/MinimapWorld.tscn" id="5_ntmsy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wdm1r"]
 viewport_path = NodePath("CanvasLayer/TextureRect/SubViewportContainer/SubViewport")
@@ -27,15 +24,6 @@ position = Vector2(9, 0)
 
 [node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_ubtgi")]
 position = Vector2(1188, 699)
-
-[node name="Brujo" parent="." unique_id=253996987 instance=ExtResource("7_onx3n")]
-position = Vector2(213, 91)
-
-[node name="Vampiro" parent="." unique_id=849875602 instance=ExtResource("9_wk5vm")]
-position = Vector2(-31, -2232)
-
-[node name="Demonio" parent="." unique_id=1582164811 instance=ExtResource("8_f77x0")]
-position = Vector2(702, -537)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1057538715]
 

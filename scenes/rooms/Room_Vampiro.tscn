@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://58i31mxkbnfh" path="res://assets/Map/mundo_vampiro.png" id="1_gmtxc"]
 [ext_resource type="Script" uid="uid://c5aop8jibgusx" path="res://scripts/Puerta_2.gd" id="2_hy688"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_vinbf"]
+[ext_resource type="PackedScene" uid="uid://ccp2t2spnc4ef" path="res://scenes/entities/enemies/Vampiro.tscn" id="4_qkrdl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gmtxc"]
 texture = ExtResource("1_gmtxc")
@@ -7809,7 +7810,7 @@ tile_set = SubResource("TileSet_ychme")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=591829045]
 script = ExtResource("2_hy688")
-next_scene_path = "res://scences/Nivel_3.tscn"
+next_scene_path = "res://scenes/Nivel_3.tscn"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Area2D" unique_id=1403219404]
 position = Vector2(529, 114)
@@ -7826,6 +7827,9 @@ shape = SubResource("RectangleShape2D_pcvdb")
 [node name="CollisionShape2D_Bloqueo2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1392072815]
 position = Vector2(527, 99)
 shape = SubResource("RectangleShape2D_2p2hn")
+
+[node name="Enemy" parent="." unique_id=849875602 instance=ExtResource("4_qkrdl")]
+position = Vector2(-144, -172)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://brogy0wv2c1fm" path="res://assets/Map/mundo_bruja.png" id="1_8mck2"]
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="3_7nske"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_itrd3"]
+[ext_resource type="PackedScene" uid="uid://bebf3nwot65qt" path="res://scenes/entities/enemies/Brujo.tscn" id="4_xyq4x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tidmb"]
 texture = ExtResource("1_8mck2")
@@ -8967,6 +8968,9 @@ animation = &"Cerrar"
 light_mask = 3
 position = Vector2(1076.75, 34.5)
 shape = SubResource("RectangleShape2D_7nske")
+
+[node name="Enemy" parent="." unique_id=253996987 instance=ExtResource("4_xyq4x")]
+position = Vector2(142, 48)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

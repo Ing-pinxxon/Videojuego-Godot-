@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3o1dvofy371" path="res://assets/Map/mundo_zombi.png" id="1_kllqj"]
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="2_r4tbx"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_nojfq"]
+[ext_resource type="PackedScene" uid="uid://kfg007qtaqbo" path="res://scenes/entities/enemies/Zombi.tscn" id="4_j38jv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4tbx"]
 texture = ExtResource("1_kllqj")
@@ -7556,6 +7557,12 @@ animation = &"Cerrar"
 light_mask = 3
 position = Vector2(852.5, 101.5)
 shape = SubResource("RectangleShape2D_6mqkf")
+
+[node name="Enemy" parent="." unique_id=574048676 instance=ExtResource("4_j38jv")]
+position = Vector2(630, 75)
+
+[node name="Enemy2" parent="." unique_id=291917093 instance=ExtResource("4_j38jv")]
+position = Vector2(-19, 32)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

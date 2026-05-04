@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bbux3c44h13ki" path="res://assets/Map/mundo_demoniaco.png" id="1_8a7ci"]
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="3_tx7on"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_xq2ps"]
+[ext_resource type="PackedScene" uid="uid://c3xpf1jh01g8u" path="res://scenes/entities/enemies/Demonio.tscn" id="4_k7nx2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjqpg"]
 texture = ExtResource("1_8a7ci")
@@ -7620,6 +7621,12 @@ animation = &"Cerrar"
 light_mask = 3
 position = Vector2(500, 40.5)
 shape = SubResource("RectangleShape2D_loi1j")
+
+[node name="Enemy" parent="." unique_id=1582164811 instance=ExtResource("4_k7nx2")]
+position = Vector2(183, 203)
+
+[node name="Enemy2" parent="." unique_id=1037033194 instance=ExtResource("4_k7nx2")]
+position = Vector2(615, 467)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

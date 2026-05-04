@@ -78,7 +78,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqguq"]
 size = Vector2(84, 126)
 
-[node name="Sombra" type="CharacterBody2D" unique_id=35652048]
+[node name="Sombra" type="CharacterBody2D" unique_id=35652048 groups=["enemies"]]
 script = ExtResource("1_mqguq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=42488255]

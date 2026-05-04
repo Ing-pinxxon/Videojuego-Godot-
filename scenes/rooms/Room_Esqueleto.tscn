@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c7ubaknjojd8f" path="res://assets/Map/mundo_esqueleto.png" id="1_b13y5"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_44ihx"]
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="3_wr3y7"]
+[ext_resource type="PackedScene" uid="uid://ff74ixyw2j6y" path="res://scenes/entities/enemies/Esqueleto.tscn" id="4_d037p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xxvpq"]
 texture = ExtResource("1_b13y5")
@@ -8107,6 +8108,12 @@ animation = &"Cerrar"
 light_mask = 3
 position = Vector2(960.5, 66.5)
 shape = SubResource("RectangleShape2D_hw7xd")
+
+[node name="Enemy" parent="." unique_id=1694021682 instance=ExtResource("4_d037p")]
+position = Vector2(636, 90)
+
+[node name="Enemy2" parent="." unique_id=1231460198 instance=ExtResource("4_d037p")]
+position = Vector2(94, 522)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

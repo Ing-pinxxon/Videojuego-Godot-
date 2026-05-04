@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://baeb8vnam4um7"]
 
 [ext_resource type="Script" uid="uid://b87iodokjyqhf" path="res://scripts/minimap_world.gd" id="1_4nr1a"]
-[ext_resource type="PackedScene" uid="uid://bcg222sdnn78v" path="res://scences/rooms/Room_Sombra.tscn" id="2_8mgia"]
-[ext_resource type="PackedScene" uid="uid://csdu0cvqfb00o" path="res://scences/rooms/Room_Esqueleto.tscn" id="3_88a1u"]
-[ext_resource type="PackedScene" uid="uid://lpkseh6gfp64" path="res://scences/rooms/Room_Fantasma.tscn" id="4_lgnye"]
-[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scences/rooms/Room_Vampiro.tscn" id="5_jub7j"]
-[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scences/rooms/Room_Demoniaco.tscn" id="6_5g36l"]
-[ext_resource type="PackedScene" uid="uid://dd7q22j6xre2p" path="res://scences/rooms/Room_Brujo.tscn" id="7_rfj1c"]
-[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scences/rooms/Room_Jefe_Final.tscn" id="8_deh8b"]
-[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scences/rooms/Room_Zombi.tscn" id="9_08xah"]
-[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scences/rooms/Room_Bestia.tscn" id="10_ichs4"]
+[ext_resource type="PackedScene" uid="uid://bcg222sdnn78v" path="res://scenes/rooms/Room_Sombra.tscn" id="2_8mgia"]
+[ext_resource type="PackedScene" uid="uid://csdu0cvqfb00o" path="res://scenes/rooms/Room_Esqueleto.tscn" id="3_88a1u"]
+[ext_resource type="PackedScene" uid="uid://lpkseh6gfp64" path="res://scenes/rooms/Room_Fantasma.tscn" id="4_lgnye"]
+[ext_resource type="PackedScene" uid="uid://6r0citlfxhyd" path="res://scenes/rooms/Room_Vampiro.tscn" id="5_jub7j"]
+[ext_resource type="PackedScene" uid="uid://bnheq7q3t5r42" path="res://scenes/rooms/Room_Demoniaco.tscn" id="6_5g36l"]
+[ext_resource type="PackedScene" uid="uid://1mbofml6kvd6" path="res://scenes/rooms/Room_Brujo.tscn" id="7_rfj1c"]
+[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scenes/rooms/Room_Jefe_Final.tscn" id="8_deh8b"]
+[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scenes/rooms/Room_Zombi.tscn" id="9_08xah"]
+[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scenes/rooms/Room_Bestia.tscn" id="10_ichs4"]
 
-[node name="MinimapWorld" type="Node2D" unique_id=49378536 groups=["Player"]]
+[node name="MinimapWorld" type="Node2D" unique_id=49378536 groups=["Player", "enemies"]]
 script = ExtResource("1_4nr1a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=911974515 groups=["HintPuerta", "Player", "Player1"]]

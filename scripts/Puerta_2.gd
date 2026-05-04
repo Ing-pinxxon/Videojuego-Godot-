@@ -20,7 +20,19 @@ var en_transicion := false
 # Ruta de la siguiente escena (se asigna desde el editor)
 @export var next_scene_path: String
 
-
+# =========================
+# VERIFICAR SI HAY ENEMIGO VIVO
+# =========================
+func _hay_enemigos_vivos():
+	# Busca enemigos en la misma sala (como hermanos del nodo puerta)
+	var parent = get_parent()
+	if parent:
+		for child in parent.get_children():
+			# Solo contar si es un Nodo2D, su nombre contiene 'Enemy' y es visible
+			if child is Node2D and child.name.contains("Enemy") and child.visible:
+				return true
+	return false
+	
 func _process(delta):
 	# Se ejecuta en cada frame
 	
@@ -33,16 +45,22 @@ func _process(delta):
 		# Si la puerta aún no está abierta
 		if not puerta_abierta:
 			# Abre la puerta y luego cambia de escena a mitad de la animación
-			abrir_puerta_y_cambiar()
+			abrir_puerta()
 		else:
 			# Si ya está abierta, cambia directamente de escena
 			change_scene()
 
+func abrir_puerta():
+	# NO abrir si hay enemigos
+	if _hay_enemigos_vivos():
+		print("⚠️ Elimina todos los enemigos primero")
+		return
+	
+	abrir_puerta_y_cambiar()
 
 # =========================
 # ABRIR Y CAMBIAR A MITAD
 # =========================
-
 func abrir_puerta_y_cambiar():
 	# Marca la puerta como abierta
 	puerta_abierta = true

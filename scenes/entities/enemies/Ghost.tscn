@@ -79,7 +79,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
 radius = 60.033325
 
-[node name="Ghost" type="CharacterBody2D" unique_id=1857393775]
+[node name="Ghost" type="CharacterBody2D" unique_id=1857393775 groups=["enemies"]]
 position = Vector2(310, 209)
 script = ExtResource("1_7ubug")
 

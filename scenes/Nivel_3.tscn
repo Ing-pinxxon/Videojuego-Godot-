@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://rc6fqupedjup"]
 
-[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scences/rooms/Room_Jefe_Final.tscn" id="1_rgnon"]
+[ext_resource type="PackedScene" uid="uid://b7w2ms8b865jd" path="res://scenes/rooms/Room_Jefe_Final.tscn" id="1_rgnon"]
 [ext_resource type="Script" uid="uid://umyrcgffpkw4" path="res://scripts/nivel.gd" id="1_usixy"]
-[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scences/rooms/Room_Zombi.tscn" id="2_b0kig"]
-[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scences/rooms/Room_Bestia.tscn" id="3_usixy"]
-[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scences/entities/player.tscn" id="4_nkn3d"]
-[ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scences/rooms/MinimapWorld.tscn" id="5_b0kig"]
-[ext_resource type="PackedScene" uid="uid://s6ie30pby71" path="res://scences/entities/enemies/Bestia.tscn" id="7_nkn3d"]
-[ext_resource type="PackedScene" uid="uid://kfg007qtaqbo" path="res://scences/entities/enemies/Zombi.tscn" id="7_vq0i2"]
+[ext_resource type="PackedScene" uid="uid://bphpdv1ylxku" path="res://scenes/rooms/Room_Zombi.tscn" id="2_b0kig"]
+[ext_resource type="PackedScene" uid="uid://uh6j6kktolxh" path="res://scenes/rooms/Room_Bestia.tscn" id="3_usixy"]
+[ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scenes/entities/player.tscn" id="4_nkn3d"]
+[ext_resource type="PackedScene" uid="uid://baeb8vnam4um7" path="res://scenes/rooms/MinimapWorld.tscn" id="5_b0kig"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_usixy"]
 viewport_path = NodePath("CanvasLayer/TextureRect/SubViewportContainer/SubViewport")
@@ -26,15 +24,6 @@ position = Vector2(10, -4)
 
 [node name="Player" parent="." unique_id=273606343 instance=ExtResource("4_nkn3d")]
 position = Vector2(746, 777)
-
-[node name="Bestia" parent="." unique_id=495155128 instance=ExtResource("7_nkn3d")]
-position = Vector2(399, 193)
-
-[node name="Zombi" parent="." unique_id=291917093 instance=ExtResource("7_vq0i2")]
-position = Vector2(-1, -998)
-
-[node name="Zombi2" parent="." unique_id=444415040 instance=ExtResource("7_vq0i2")]
-position = Vector2(736, -963)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=859759922]
 

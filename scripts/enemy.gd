@@ -110,6 +110,12 @@ func _update_hearts():
 func die():
 	print("Enemigo derrotado!")
 	is_dead = true
+	
+	visible = false
+	
+	# ❌ Quitar del minimapa
+	remove_from_group("enemies") # o el grupo que uses
+	
 	queue_free()
 
 func _on_hitbox_area_entered(area):
