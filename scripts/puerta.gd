@@ -17,6 +17,8 @@ var puerta_abierta := false
 # Ruta de la siguiente escena (se asigna desde el editor si es una puerta de salida)
 @export var next_scene_path: String
 
+@export var requiere_puzzle_de: String = ""
+
 # Evita que la transición se ejecute múltiples veces seguidas
 var en_transicion := false 
 
@@ -58,6 +60,10 @@ func abrir_puerta():
 	# NO abrir si hay enemigos
 	if _hay_enemigos_vivos():
 		print("⚠️ Elimina todos los enemigos primero")
+		return
+	
+	if requiere_puzzle_de != "" and not GlobalState.puzzle_esta_resuelto(requiere_puzzle_de):
+		print("🔒 Resuelve el puzzle primero")
 		return
 	
 	puerta_abierta = true

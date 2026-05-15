@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="2_r4tbx"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_nojfq"]
 [ext_resource type="PackedScene" uid="uid://kfg007qtaqbo" path="res://scenes/entities/enemies/Zombi.tscn" id="4_j38jv"]
+[ext_resource type="PackedScene" uid="uid://q3cpdckf1tva" path="res://scenes/rooms/puzzle_palanca.tscn" id="5_5luiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4tbx"]
 texture = ExtResource("1_kllqj")
@@ -7540,6 +7541,7 @@ tile_set = SubResource("TileSet_nojfq")
 [node name="Area2D" type="Area2D" parent="." unique_id=2018045188]
 collision_layer = 2
 script = ExtResource("2_r4tbx")
+requiere_puzzle_de = "RoomZombi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=492348622]
 position = Vector2(852.5, 105)
@@ -7563,6 +7565,10 @@ position = Vector2(630, 75)
 
 [node name="Enemy2" parent="." unique_id=291917093 instance=ExtResource("4_j38jv")]
 position = Vector2(-19, 32)
+
+[node name="PuzzlePalanca" parent="." unique_id=2030838758 instance=ExtResource("5_5luiu")]
+position = Vector2(645, 603)
+scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

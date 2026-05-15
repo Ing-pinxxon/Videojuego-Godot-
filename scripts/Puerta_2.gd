@@ -20,6 +20,8 @@ var en_transicion := false
 # Ruta de la siguiente escena (se asigna desde el editor)
 @export var next_scene_path: String
 
+@export var requiere_puzzle_de: String = ""
+
 # =========================
 # VERIFICAR SI HAY ENEMIGO VIVO
 # =========================
@@ -54,6 +56,10 @@ func abrir_puerta():
 	# NO abrir si hay enemigos
 	if _hay_enemigos_vivos():
 		print("⚠️ Elimina todos los enemigos primero")
+		return
+	
+	if requiere_puzzle_de != "" and not GlobalState.puzzle_esta_resuelto(requiere_puzzle_de):
+		print("🔒 Resuelve el puzzle primero")
 		return
 	
 	abrir_puerta_y_cambiar()
