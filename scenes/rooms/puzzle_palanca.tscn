@@ -2,22 +2,26 @@
 
 [ext_resource type="Script" uid="uid://bt2k8xsfsh1ml" path="res://scripts/puzzle_palanca.gd" id="1_3ei4x"]
 [ext_resource type="Script" uid="uid://c82xtgcphcv7i" path="res://scripts/palanca.gd" id="2_rfbj1"]
+[ext_resource type="Texture2D" uid="uid://buvjx6c6pxu3q" path="res://assets/ui/palanca.png" id="3_m233i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6v3u"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rfbj1"]
+size = Vector2(19, 19)
 
 [node name="PuzzlePalanca" type="Node2D" unique_id=2030838758]
+position = Vector2(139, 105)
 script = ExtResource("1_3ei4x")
 
 [node name="Palanca_1" type="Area2D" parent="." unique_id=1134040076]
 script = ExtResource("2_rfbj1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Palanca_1" unique_id=377026113]
+position = Vector2(-14.5, -16.5)
 shape = SubResource("RectangleShape2D_v6v3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="Palanca_1" unique_id=888349566]
-texture = SubResource("PlaceholderTexture2D_rfbj1")
+position = Vector2(-13.999998, -16.5)
+scale = Vector2(0.20000006, 0.14782608)
+texture = ExtResource("3_m233i")
 
 [connection signal="body_entered" from="Palanca_1" to="Palanca_1" method="_on_body_entered"]
 [connection signal="body_exited" from="Palanca_1" to="Palanca_1" method="_on_body_exited"]
