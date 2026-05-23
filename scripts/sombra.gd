@@ -1,4 +1,4 @@
-extends Enemy
+extends enemy
 
 @export var projectile_scene: PackedScene = preload("res://scenes/entities/enemies/projectile_enemigo.tscn")
 var attack_timer: float = 0.0
