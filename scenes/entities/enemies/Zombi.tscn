@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kfg007qtaqbo"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_t5inw"]
+[ext_resource type="Script" path="res://scripts/zombi.gd" id="1_t5inw"]
 [ext_resource type="Texture2D" uid="uid://brcoqakkwoky5" path="res://assets/sprites/enemies/Zombi.png" id="2_o2cu0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eeulh"]
@@ -162,12 +162,10 @@ radius = 61.204575
 [node name="Zombi" type="CharacterBody2D" unique_id=291917093 groups=["enemies"]]
 script = ExtResource("1_t5inw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719212479]
-position = Vector2(469, 297)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_eeulh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1012582879]
-position = Vector2(456.25, 283.5)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.38224638, 0.37573957)
 sprite_frames = SubResource("SpriteFrames_en3og")
 animation = &"walkRight"
@@ -175,8 +173,7 @@ frame = 12
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=2121370692]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1822347340]
-position = Vector2(469, 297)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_0j07t")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

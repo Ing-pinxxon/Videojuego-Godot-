@@ -596,9 +596,9 @@ metadata/_edit_group_ = true
 position = Vector2(41.5, 52.999996)
 scale = Vector2(6.1875, 7.6249995)
 sprite_frames = SubResource("SpriteFrames_ikh6d")
-animation = &"idle_down"
+animation = &"attack_down"
 autoplay = "idle_down"
-frame_progress = 0.96274495
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474151542]
 position = Vector2(42, 50)

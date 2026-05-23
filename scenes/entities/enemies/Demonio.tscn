@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3xpf1jh01g8u"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_ewwuh"]
+[ext_resource type="Script" path="res://scripts/demonio.gd" id="1_ewwuh"]
 [ext_resource type="Texture2D" uid="uid://boym4egtorn5j" path="res://assets/sprites/enemies/Demonio.png" id="1_nn6v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewwuh"]
@@ -109,22 +109,18 @@ size = Vector2(104.75, 142.25)
 [node name="Demonio" type="CharacterBody2D" unique_id=1582164811 groups=["enemies"]]
 script = ExtResource("1_ewwuh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073659041]
-position = Vector2(366.5, 244.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ewwuh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1181532082]
-position = Vector2(361.33737, 245.445)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.4404287, 1.4112372)
 sprite_frames = SubResource("SpriteFrames_62ixg")
 animation = &"walkRight"
 frame = 5
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=680005563]
-position = Vector2(33, 19)
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1012299946]
-position = Vector2(330.96237, 227.32)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_kjclw")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

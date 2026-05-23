@@ -8110,10 +8110,12 @@ position = Vector2(960.5, 66.5)
 shape = SubResource("RectangleShape2D_hw7xd")
 
 [node name="Enemy" parent="." unique_id=1694021682 instance=ExtResource("4_d037p")]
-position = Vector2(636, 90)
+z_index = 5
+position = Vector2(1071, 333)
 
 [node name="Enemy2" parent="." unique_id=1231460198 instance=ExtResource("4_d037p")]
-position = Vector2(94, 522)
+z_index = 5
+position = Vector2(473, 758)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

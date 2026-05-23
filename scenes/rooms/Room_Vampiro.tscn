@@ -7829,7 +7829,11 @@ position = Vector2(527, 99)
 shape = SubResource("RectangleShape2D_2p2hn")
 
 [node name="Enemy" parent="." unique_id=849875602 instance=ExtResource("4_qkrdl")]
-position = Vector2(-144, -172)
+z_index = 5
+position = Vector2(518, 572)
+
+[node name="Vampiro" parent="." unique_id=431396460 instance=ExtResource("4_qkrdl")]
+position = Vector2(548, 331)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

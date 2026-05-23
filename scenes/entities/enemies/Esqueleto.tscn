@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ff74ixyw2j6y"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_j5rjh"]
+[ext_resource type="Script" path="res://scripts/esqueleto.gd" id="1_j5rjh"]
 [ext_resource type="Texture2D" uid="uid://c4ovaxmsbaf2e" path="res://assets/sprites/enemies/Esqueleto.png" id="1_lqxmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rjh"]
@@ -81,21 +81,17 @@ size = Vector2(98, 128)
 [node name="Esqueleto" type="CharacterBody2D" unique_id=1694021682 groups=["enemies"]]
 script = ExtResource("1_j5rjh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2011916562]
-position = Vector2(355.5, 296.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_j5rjh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=562994743]
-position = Vector2(354, 293)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.26430085, 0.30546167)
 sprite_frames = SubResource("SpriteFrames_vnnb2")
 animation = &"walkRight"
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1253219414]
-position = Vector2(33, 19)
+[node name="Hitbox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=18609466]
-position = Vector2(322, 278)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_7n7uo")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

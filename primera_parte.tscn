@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cljdqputudr4m"]
 
-[ext_resource type="PackedScene" path="res://scences/rooms/Map.tscn" id="1_iaq0h"]
+[ext_resource type="PackedScene" path="res://scenes/rooms/Room_Fantasma.tscn" id="1_iaq0h"]
 [ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scenes/entities/enemies/Ghost.tscn" id="2_safhr"]
 [ext_resource type="PackedScene" uid="uid://bo2ahugfd8syv" path="res://scenes/entities/player.tscn" id="3_c0lbt"]
 

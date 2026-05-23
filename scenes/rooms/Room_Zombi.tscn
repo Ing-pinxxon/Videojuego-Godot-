@@ -7561,10 +7561,12 @@ position = Vector2(852.5, 101.5)
 shape = SubResource("RectangleShape2D_6mqkf")
 
 [node name="Enemy" parent="." unique_id=574048676 instance=ExtResource("4_j38jv")]
-position = Vector2(630, 75)
+z_index = 5
+position = Vector2(552, 334)
 
 [node name="Enemy2" parent="." unique_id=291917093 instance=ExtResource("4_j38jv")]
-position = Vector2(-19, 32)
+z_index = 5
+position = Vector2(1018, 324)
 
 [node name="PuzzlePalanca" parent="." unique_id=2030838758 instance=ExtResource("5_5luiu")]
 position = Vector2(645, 603)

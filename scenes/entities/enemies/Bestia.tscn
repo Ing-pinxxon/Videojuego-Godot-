@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://s6ie30pby71"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_eli68"]
+[ext_resource type="Script" uid="uid://bc34as7br7152" path="res://scripts/bestia.gd" id="1_f2qrn"]
 [ext_resource type="Texture2D" uid="uid://cp041ou264b5n" path="res://assets/sprites/enemies/Bestia.png" id="2_832xn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_de0es"]
@@ -90,27 +90,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42g5d"]
-radius = 74.06078
+radius = 50.0
 
 [node name="Bestia" type="CharacterBody2D" unique_id=495155128]
-script = ExtResource("1_eli68")
+script = ExtResource("1_f2qrn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1275648385]
-position = Vector2(321, 198)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=74786999]
 shape = SubResource("CircleShape2D_de0es")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1548608382]
-position = Vector2(322.00003, 190.00002)
-scale = Vector2(0.43630126, 0.4429451)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1204656990]
+position = Vector2(0, -1)
+scale = Vector2(0.3165114, 0.27547014)
 sprite_frames = SubResource("SpriteFrames_de0es")
 animation = &"walkRight"
 frame = 5
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1886173929]
-position = Vector2(33, 19)
+[node name="Hitbox" type="Area2D" parent="." unique_id=1035475674]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=167519348]
-position = Vector2(290, 182)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=577538706]
 shape = SubResource("CircleShape2D_42g5d")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

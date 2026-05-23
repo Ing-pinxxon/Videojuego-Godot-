@@ -9044,10 +9044,11 @@ position = Vector2(553.625, 92)
 shape = SubResource("RectangleShape2D_kaysq")
 
 [node name="Enemy" parent="." unique_id=35652048 instance=ExtResource("4_kaysq")]
-position = Vector2(-107, 502)
+z_index = 5
+position = Vector2(849, 283)
 
-[node name="Enemy2" parent="." unique_id=775531376 instance=ExtResource("4_kaysq")]
-position = Vector2(498, 143)
+[node name="Sombra" parent="." unique_id=1524137310 instance=ExtResource("4_kaysq")]
+position = Vector2(390, 641)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

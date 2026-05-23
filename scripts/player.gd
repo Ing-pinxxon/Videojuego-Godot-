@@ -13,8 +13,6 @@ var is_attacking = false
 var last_direction = "up"
 var is_invincible = false
 @export var invincibility_duration = 1.0
-var hit_counter = 0
-@export var hits_to_take_damage = 3
 
 var hearts_container : HBoxContainer
 var heart_texture = preload("res://assets/ui/heart.png")
@@ -144,21 +142,6 @@ func _position_attack_area():
 func take_damage(amount: int):
 	if is_invincible: return
 	
-	# Contador de golpes
-	hit_counter += 1
-	print("Golpe recibido: ", hit_counter, "/", hits_to_take_damage)
-	
-	# Solo pierde vida cada 3 golpes
-	if hit_counter < hits_to_take_damage:
-		animated_sprite_2d.modulate = Color(1, 1, 0) # amarillo
-		await get_tree().create_timer(0.1).timeout
-		animated_sprite_2d.modulate = Color.WHITE
-		return
-	
-	# Reiniciar contador
-	hit_counter = 0
-	
-	# Ahora sí recibe daño real
 	health -= amount
 	_update_hearts()
 	print("Jugador dañado! Vida: ", health)
@@ -166,13 +149,13 @@ func take_damage(amount: int):
 	# Activar invencibilidad
 	is_invincible = true
 	
-	# Efecto visual
+	# Efecto visual de daño (Cian/Azul para "choque de fantasma")
 	var tween = create_tween()
 	animated_sprite_2d.modulate = Color.WHITE
 	tween.tween_property(animated_sprite_2d, "modulate", Color(0, 0.65, 1, 1), 0.2)
 	tween.tween_property(animated_sprite_2d, "modulate", Color.WHITE, 0.2)
 	
-	# Flash
+	# Titileo de invencibilidad opcional (Flash)
 	var flash_tween = create_tween().set_loops(int(invincibility_duration / 0.2))
 	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 0.5), 0.1)
 	flash_tween.tween_property(animated_sprite_2d, "modulate", Color(1, 1, 1, 1), 0.1)
@@ -203,8 +186,13 @@ func _update_hearts():
 
 func die():
 	print("Jugador derrotado! Volviendo al Nivel 1...")
-	GlobalState.rooms_visited.clear()
-	get_tree().change_scene_to_file("res://scences/Nivel_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/Nivel_1.tscn")
 
 func _on_attack_area_entered(area):
 	print("DEBUG: Player AttackArea entró en: ", area.name, " del objeto: ", area.get_parent().name)
+	
+	# Obtener el padre del área (debería ser el enemigo)
+	var enemy = area.get_parent()
+	if enemy and enemy.has_method("take_damage"):
+		enemy.take_damage(1)
+		print("DEBUG: Enemigo dañado! ", enemy.name)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bebf3nwot65qt"]
 
 [ext_resource type="Texture2D" uid="uid://baqskfka71qne" path="res://assets/sprites/enemies/Brujo.png" id="1_d67u2"]
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_ii3i3"]
+[ext_resource type="Script" uid="uid://8mav2ivoj222" path="res://scripts/brujo.gd" id="1_ii3i3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nufoh"]
 radius = 53.15073
@@ -76,20 +76,17 @@ radius = 81.88406
 [node name="Brujo" type="CharacterBody2D" unique_id=253996987 groups=["enemies"]]
 script = ExtResource("1_ii3i3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860360401]
-position = Vector2(473, 233)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168538385]
 shape = SubResource("CircleShape2D_nufoh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348240927]
-position = Vector2(464, 232)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=422280739]
 scale = Vector2(1.1586534, 1.1702899)
 sprite_frames = SubResource("SpriteFrames_tgqn8")
 animation = &"walkLeft"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=508593209]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=921158883]
-position = Vector2(470, 235)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=32983514]
 shape = SubResource("CircleShape2D_4bie5")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

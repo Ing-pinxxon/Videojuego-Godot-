@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://vavm0rt1vqpf"]
+
+[ext_resource type="Script" uid="uid://0nt3303fsj20" path="res://scripts/jefe_final.gd" id="1_boss"]
+[ext_resource type="Texture2D" uid="uid://cp041ou264b5n" path="res://assets/sprites/enemies/Bestia.png" id="2_832xn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_de0es"]
+radius = 54.00926
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_832xn"]
+atlas = ExtResource("2_832xn")
+region = Rect2(0, 340, 277, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30mv5"]
+atlas = ExtResource("2_832xn")
+region = Rect2(277, 340, 277, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk2jx"]
+atlas = ExtResource("2_832xn")
+region = Rect2(804, 340, 268, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0p6dr"]
+atlas = ExtResource("2_832xn")
+region = Rect2(554, 340, 277, 340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scjrl"]
+atlas = ExtResource("2_832xn")
+region = Rect2(1100, 0, 275, 352)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ncim"]
+atlas = ExtResource("2_832xn")
+region = Rect2(828, 0, 276, 351)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0fwn"]
+atlas = ExtResource("2_832xn")
+region = Rect2(552, 0, 276, 351)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_de0es"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_832xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30mv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk2jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p6dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_832xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30mv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk2jx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0p6dr")
+}],
+"loop": true,
+"name": &"walkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scjrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ncim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0fwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scjrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ncim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0fwn")
+}],
+"loop": true,
+"name": &"walkRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_42g5d"]
+radius = 74.06078
+
+[node name="JefeFinal" type="CharacterBody2D" unique_id=999999 groups=["enemies"]]
+script = ExtResource("1_boss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=350056006]
+position = Vector2(261, 206)
+shape = SubResource("CircleShape2D_de0es")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1425572175]
+modulate = Color(0.3, 0, 0, 1)
+position = Vector2(252.99997, 208.99997)
+scale = Vector2(0.4963768, 0.41452992)
+sprite_frames = SubResource("SpriteFrames_de0es")
+animation = &"walkRight"
+frame = 5
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=445973948]
+position = Vector2(222, 161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=90881055]
+position = Vector2(28, 72)
+shape = SubResource("CircleShape2D_42g5d")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -8216,8 +8216,8 @@ light_mask = 3
 position = Vector2(814, 83)
 shape = SubResource("RectangleShape2D_ootu1")
 
-[node name="Enemy" parent="." unique_id=495155128 instance=ExtResource("4_6fai5")]
-position = Vector2(439, 252)
+[node name="Bestia" parent="." unique_id=495155128 instance=ExtResource("4_6fai5")]
+position = Vector2(807, 609)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
