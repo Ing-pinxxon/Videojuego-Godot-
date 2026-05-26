@@ -196,3 +196,7 @@ func _on_attack_area_entered(area):
 	if enemy and enemy.has_method("take_damage"):
 		enemy.take_damage(1)
 		print("DEBUG: Enemigo dañado! ", enemy.name)
+
+
+func _on_texture_button_pressed():
+	print("Botón presionado")

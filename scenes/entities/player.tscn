@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://vsywjduu0jxw" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_attack_left_anim_strip_6.png" id="11_atkl"]
 [ext_resource type="Texture2D" uid="uid://l65inbr641rv" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_attack_right_anim_strip_6.png" id="12_atkr"]
 [ext_resource type="Texture2D" uid="uid://3fjeignm6j24" path="res://Top_Down_Adventure_Pack_v.1.0/Char_Sprites/char_attack_up_anim_strip_6.png" id="13_atku"]
+[ext_resource type="Texture2D" uid="uid://d1c6wj8mkqufw" path="res://assets/ui/Menu.png" id="14_saib0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_atd0"]
 atlas = ExtResource("10_atkd")
@@ -582,13 +583,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4p4d"]
-size = Vector2(72, 114)
+size = Vector2(72, 109)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lowl5"]
-size = Vector2(73, 116)
+size = Vector2(138, 117)
 
 [node name="Player" type="CharacterBody2D" unique_id=273606343]
-position = Vector2(66, 83)
+position = Vector2(73, 102)
 script = ExtResource("1_3j5lm")
 metadata/_edit_group_ = true
 
@@ -601,7 +602,7 @@ autoplay = "idle_down"
 frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474151542]
-position = Vector2(42, 50)
+position = Vector2(42, -11.5)
 shape = SubResource("RectangleShape2D_u4p4d")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=813945899]
@@ -610,7 +611,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1370673894]
-position = Vector2(33.5, 51)
+position = Vector2(10, -11.5)
 shape = SubResource("RectangleShape2D_lowl5")
 debug_color = Color(0.9, 0.1, 0.1, 0.4)
 metadata/_edit_group_ = true
@@ -626,3 +627,12 @@ offset_right = 390.0
 offset_bottom = 259.0
 text = "Presiona [M] para ver o olcutar el minimapa
 Presiona [ESPACIO] Abrir / Cerrar puerta"
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=550440271]
+offset_left = 336.0
+offset_top = -255.0
+offset_right = 386.0
+offset_bottom = -208.0
+texture_normal = ExtResource("14_saib0")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
