@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d4jiwv4ud7flx" path="res://scripts/puerta.gd" id="3_tx7on"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_xq2ps"]
 [ext_resource type="PackedScene" uid="uid://c3xpf1jh01g8u" path="res://scenes/entities/enemies/Demonio.tscn" id="4_k7nx2"]
+[ext_resource type="PackedScene" uid="uid://bjocbu53nb4ni" path="res://scenes/rooms/puzzle_presion.tscn" id="5_yrndg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjqpg"]
 texture = ExtResource("1_8a7ci")
@@ -7604,6 +7605,7 @@ tile_set = SubResource("TileSet_xq2ps")
 [node name="Area2D" type="Area2D" parent="." unique_id=1362139886]
 collision_layer = 2
 script = ExtResource("3_tx7on")
+requiere_puzzle_de = "RoomDemoniaco"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=511599474]
 position = Vector2(498, 52.5)
@@ -7629,6 +7631,9 @@ position = Vector2(601, 441)
 [node name="Enemy2" parent="." unique_id=1037033194 instance=ExtResource("4_k7nx2")]
 z_index = 5
 position = Vector2(1082, 704)
+
+[node name="PuzzlePresion" parent="." unique_id=1575921612 instance=ExtResource("5_yrndg")]
+position = Vector2(736, 478)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

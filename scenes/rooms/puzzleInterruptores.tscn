@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://24qfwc0dvqia"]
+
+[ext_resource type="Script" uid="uid://cjo5jxk3j5j28" path="res://scripts/puzzle_interruptores.gd" id="1_kf74i"]
+[ext_resource type="Script" uid="uid://cqn4bnpam7y3c" path="res://scripts/interruptor.gd" id="2_ha6y0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xch3h"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kf74i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf74i"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ha6y0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha6y0"]
+size = Vector2(26, 18)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_04kfk"]
+
+[node name="PuzzleInterruptores" type="Node2D" unique_id=478965853]
+script = ExtResource("1_kf74i")
+
+[node name="Interruptor_1" type="Area2D" parent="." unique_id=1759621204]
+position = Vector2(79, 216)
+script = ExtResource("2_ha6y0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_1" unique_id=1220116432]
+shape = SubResource("RectangleShape2D_xch3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interruptor_1" unique_id=1402621900]
+texture = SubResource("PlaceholderTexture2D_kf74i")
+
+[node name="Interruptor_2" type="Area2D" parent="." unique_id=356595618]
+position = Vector2(277, 218)
+script = ExtResource("2_ha6y0")
+numero = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_2" unique_id=1818454051]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_kf74i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interruptor_2" unique_id=817235384]
+texture = SubResource("PlaceholderTexture2D_ha6y0")
+
+[node name="Interruptor_3" type="Area2D" parent="." unique_id=1681043949]
+position = Vector2(444, 229)
+script = ExtResource("2_ha6y0")
+numero = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_3" unique_id=1518261545]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_ha6y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interruptor_3" unique_id=254060765]
+position = Vector2(-1, -1)
+scale = Vector2(-24, -25)
+texture = SubResource("PlaceholderTexture2D_04kfk")
+
+[connection signal="body_entered" from="Interruptor_1" to="." method="_on_interruptor_1_body_entered"]
+[connection signal="body_exited" from="Interruptor_1" to="." method="_on_interruptor_1_body_exited"]
+[connection signal="body_entered" from="Interruptor_2" to="." method="_on_interruptor_2_body_entered"]
+[connection signal="body_exited" from="Interruptor_2" to="." method="_on_interruptor_2_body_exited"]
+[connection signal="body_entered" from="Interruptor_3" to="." method="_on_interruptor_3_body_entered"]
+[connection signal="body_exited" from="Interruptor_3" to="." method="_on_interruptor_3_body_exited"]
