@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bhno6cndtajyf"]
+
+[ext_resource type="Script" uid="uid://bv3551h6ukidv" path="res://scripts/puzzle_antorchas.gd" id="1_7c6qs"]
+[ext_resource type="Script" uid="uid://d24y1dxkeq3g3" path="res://scripts/antorcha.gd" id="2_vchu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvva3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7c6qs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c6qs"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vchu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vchu0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tab8x"]
+
+[node name="PuzzleAntorchas" type="Node2D" unique_id=716822234]
+position = Vector2(1, 2)
+script = ExtResource("1_7c6qs")
+
+[node name="Antorcha_1" type="Area2D" parent="." unique_id=909340958]
+position = Vector2(135, 153)
+script = ExtResource("2_vchu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_1" unique_id=1684680422]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_lvva3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Antorcha_1" unique_id=1329326040]
+position = Vector2(2, 0)
+scale = Vector2(19.5, 16.5)
+texture = SubResource("PlaceholderTexture2D_7c6qs")
+
+[node name="Antorcha_2" type="Area2D" parent="." unique_id=1481035244]
+position = Vector2(260, 161)
+script = ExtResource("2_vchu0")
+numero = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_2" unique_id=1083803422]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_7c6qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Antorcha_2" unique_id=1252420840]
+texture = SubResource("PlaceholderTexture2D_vchu0")
+
+[node name="Antorcha_3" type="Area2D" parent="." unique_id=1941319390]
+position = Vector2(364, 167)
+script = ExtResource("2_vchu0")
+numero = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_3" unique_id=1926555864]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_vchu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Antorcha_3" unique_id=1772814633]
+texture = SubResource("PlaceholderTexture2D_tab8x")
