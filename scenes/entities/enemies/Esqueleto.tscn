@@ -75,8 +75,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n7uo"]
-size = Vector2(98, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_3iqdw"]
+radius = 67.601776
 
 [node name="Esqueleto" type="CharacterBody2D" unique_id=1694021682 groups=["enemies"]]
 script = ExtResource("1_j5rjh")
@@ -93,7 +93,7 @@ animation = &"walkRight"
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=620089469]
-shape = SubResource("RectangleShape2D_7n7uo")
+shape = SubResource("CircleShape2D_3iqdw")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

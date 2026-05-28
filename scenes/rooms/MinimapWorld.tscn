@@ -61,3 +61,9 @@ offset_top = 37.0
 offset_right = 91.0
 offset_bottom = 91.0
 color = Color(0.7738044, 0.08017363, 0.13102494, 1)
+
+[node name="Button" type="Button" parent="." unique_id=41289630]
+offset_left = 1539.0
+offset_top = 1657.0
+offset_right = 1875.0
+offset_bottom = 1896.0
