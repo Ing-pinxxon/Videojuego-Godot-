@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c5aop8jibgusx" path="res://scripts/Puerta_2.gd" id="2_x554b"]
 [ext_resource type="Texture2D" uid="uid://b1nnd3sodga6k" path="res://assets/Map/puerta.png" id="3_ngqh1"]
 [ext_resource type="PackedScene" uid="uid://dh8ubt0e4bj3i" path="res://scenes/entities/enemies/Ghost.tscn" id="4_gfea3"]
+[ext_resource type="PackedScene" uid="uid://bhno6cndtajyf" path="res://scenes/rooms/puzzle_antorchas.tscn" id="5_bnsqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aefap"]
 texture = ExtResource("1_aefap")
@@ -8830,6 +8831,7 @@ tile_set = SubResource("TileSet_kpprs")
 [node name="Area2D" type="Area2D" parent="." unique_id=1639060335]
 script = ExtResource("2_x554b")
 next_scene_path = "res://scenes/Nivel_2.tscn"
+requiere_puzzle_de = "RoomFantasma"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Area2D" unique_id=1286050148]
 position = Vector2(755, 105.37499)
@@ -8852,6 +8854,9 @@ position = Vector2(528, 330)
 
 [node name="Enemy2" parent="." unique_id=767431737 instance=ExtResource("4_gfea3")]
 position = Vector2(1019, 710)
+
+[node name="PuzzleAntorchas" parent="." unique_id=716822234 instance=ExtResource("5_bnsqj")]
+position = Vector2(842, 716)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
