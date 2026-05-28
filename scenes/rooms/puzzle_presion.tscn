@@ -12,25 +12,28 @@ size = Vector2(64, 49.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv77j"]
 size = Vector2(56, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p167"]
+size = Vector2(50, 46)
+
 [node name="PuzzlePresion" type="Node2D" unique_id=1575921612]
 position = Vector2(-1, -1)
 script = ExtResource("1_35kfl")
 
 [node name="PlataformaPresion_1" type="Area2D" parent="." unique_id=1575211751]
-position = Vector2(207, 204)
+position = Vector2(441, 173)
 script = ExtResource("2_sv77j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaPresion_1" unique_id=1154807605]
-position = Vector2(-1, 1)
+position = Vector2(-1.1065979, 0.67271423)
 shape = SubResource("RectangleShape2D_rflua")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlataformaPresion_1" unique_id=2106351042]
-position = Vector2(-1, 1)
+position = Vector2(0.8934021, 0.67271423)
 scale = Vector2(-0.17953987, -0.14132968)
 texture = ExtResource("3_ndxwp")
 
 [node name="ObjetoEmpujable_1" type="CharacterBody2D" parent="." unique_id=1948001844]
-position = Vector2(428, 212)
+position = Vector2(250, 164)
 script = ExtResource("3_01yv3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetoEmpujable_1" unique_id=2139654149]
@@ -41,3 +44,9 @@ shape = SubResource("RectangleShape2D_sv77j")
 position = Vector2(1.0000067, 4.75)
 scale = Vector2(0.18939403, 0.19377981)
 texture = ExtResource("5_6qino")
+
+[node name="AreaDeteccion" type="Area2D" parent="ObjetoEmpujable_1" unique_id=1649107167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetoEmpujable_1/AreaDeteccion" unique_id=1531701590]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_7p167")

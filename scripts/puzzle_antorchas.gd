@@ -27,6 +27,32 @@ func antorcha_encendida(numero: int) -> void:
 
 func reiniciar() -> void:
 	secuencia_actual = []
+	print("🔄 Secuencia reiniciada")
 	for child in get_children():
 		if child is Area2D:
 			child.apagar()
+
+
+func _on_antorcha_1_body_entered(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_1.jugador_cerca = true
+
+func _on_antorcha_1_body_exited(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_1.jugador_cerca = false
+
+func _on_antorcha_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_2.jugador_cerca = true
+
+func _on_antorcha_2_body_exited(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_2.jugador_cerca = false
+
+func _on_antorcha_3_body_entered(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_3.jugador_cerca = true
+
+func _on_antorcha_3_body_exited(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		$Antorcha_3.jugador_cerca = false

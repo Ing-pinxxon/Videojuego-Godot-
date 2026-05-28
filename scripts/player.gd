@@ -73,6 +73,11 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		var obj = col.get_collider()
+		if obj and obj.is_in_group("empujable"):
+			obj.velocity = velocity.normalized() * 70.0
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")

@@ -37,24 +37,25 @@ func reiniciar() -> void:
 
 
 func _on_interruptor_1_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_1.jugador_cerca = true
 
 func _on_interruptor_1_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_1.jugador_cerca = false
 
 func _on_interruptor_2_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_2.jugador_cerca = true
 
 func _on_interruptor_2_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_2.jugador_cerca = false
 
 func _on_interruptor_3_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_3.jugador_cerca = true
 
 func _on_interruptor_3_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "Player" or body.is_in_group("player"):
+		$Interruptor_3.jugador_cerca = false

@@ -8,8 +8,6 @@ var encendida := false
 @onready var sprite = $Sprite2D
 
 func _ready():
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
 	apagar()
 
 func _process(_delta):
@@ -26,6 +24,7 @@ func encender() -> void:
 func apagar() -> void:
 	encendida = false
 	sprite.modulate = Color(0.3, 0.3, 0.3)  # gris oscuro = apagada
+	print("💀 Antorcha ", numero, " apagada")
 
 func _on_body_entered(body):
 	if body.name == "Player" or body.is_in_group("player"):
