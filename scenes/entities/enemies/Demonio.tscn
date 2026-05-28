@@ -103,8 +103,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjclw"]
-size = Vector2(104.75, 142.25)
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf7ov"]
+radius = 78.77182
 
 [node name="Demonio" type="CharacterBody2D" unique_id=1582164811 groups=["enemies"]]
 script = ExtResource("1_ewwuh")
@@ -122,7 +122,7 @@ frame = 5
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1880982424]
-shape = SubResource("RectangleShape2D_kjclw")
+shape = SubResource("CircleShape2D_gf7ov")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
