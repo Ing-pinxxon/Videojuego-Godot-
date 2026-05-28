@@ -1,23 +1,29 @@
 extends Enemy
+class_name Ghost
 
-# Ghost is a melee enemy that chases the player
+var hit_stun_timer: float = 0.0
+const HIT_STUN_DURATION: float = 0.4
+
 func _ready():
-	super._ready()
-	# Ghost specific setup
 	speed = 120
 	detection_range = 250.0
 	attack_range = 40.0
 	max_health = 3
-	health = max_health
+	super._ready()
 
-func _setup_detection():
-	for node in get_tree().get_nodes_in_group("player"):
-		if node is CharacterBody2D:
-			target_player = node
-			break
+func _physics_process(_delta):
+	if hit_stun_timer > 0:
+		hit_stun_timer -= _delta
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	super._physics_process(_delta)
+
+func take_damage(amount: int):
+	super.take_damage(amount)
+	hit_stun_timer = HIT_STUN_DURATION
 
 func _attack_logic(_delta):
-	# Ghost is persistent, even in attack range it stays on top of player
 	if target_player:
 		var moveDirection = target_player.global_position - global_position
 		velocity = moveDirection.normalized() * (speed * 0.8)

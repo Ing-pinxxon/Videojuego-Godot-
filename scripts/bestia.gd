@@ -1,11 +1,11 @@
 extends Enemy
+class_name Bestia
 
 func _ready():
 	max_health = 10
 	speed = 70
 	detection_range = 250
 	show_health_bar = true
-	damage_to_player = 2
 	super._ready()
 
 func _setup_detection():

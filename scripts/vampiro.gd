@@ -1,4 +1,5 @@
 extends Enemy
+class_name Vampiro
 
 func _ready():
 	max_health = 4

@@ -5,17 +5,14 @@ enum State { PATROL, CHASE, ATTACK, DEAD }
 @export var enemy_id: String = ""
 @export_group("Base Attributes")
 @export var max_health: int = 2
-@export var damage_to_player: int = 1
 @export var speed: int = 100
 @export var detection_range: float = 200.0
 @export var attack_range: float = 50.0
-@export var damage_cooldown: float = 1.0
 @export var show_health_bar: bool = false
 
-var health: int
+var health: int = 0
 var current_state: State = State.PATROL
 var is_dead: bool = false
-var can_damage: bool = true
 var target_player: Node2D = null
 
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
@@ -26,14 +23,13 @@ var startPosition: Vector2
 var endPosition: Vector2
 var heart_texture = preload("res://assets/ui/heart.png")
 var is_loading: bool = false
-
+var can_damage: bool = true
 
 func _ready():
-	health = max_health
+	health = max_health if max_health > 0 else 2
 	startPosition = global_position
 	endPosition = startPosition + Vector2(100, 0)
 
-	# Auto-generar ID si no fue asignado en el Inspector
 	if enemy_id == "":
 		enemy_id = name + "_" + str(int(startPosition.x)) + "_" + str(int(startPosition.y))
 		print("🔑 ID auto-generado: ", enemy_id)
@@ -44,7 +40,6 @@ func _ready():
 	add_to_group("enemies")
 
 func _setup_ui():
-	# Instanciar antes de usar
 	hearts_container = HBoxContainer.new()
 	hearts_container.size = Vector2(60, 20)
 	add_child(hearts_container)
@@ -61,11 +56,6 @@ func _setup_detection():
 			target_player = node
 			break
 
-	var hitbox = get_node_or_null("Hitbox")
-	if hitbox:
-		if not hitbox.area_entered.is_connected(_on_hitbox_area_entered):
-			hitbox.area_entered.connect(_on_hitbox_area_entered)
-
 func _physics_process(_delta):
 	if is_dead: return
 
@@ -73,7 +63,6 @@ func _physics_process(_delta):
 	_apply_movement(_delta)
 	_update_animation()
 	_update_ui_position()
-	_check_contact_damage()
 
 func _update_state():
 	if target_player:
@@ -114,7 +103,6 @@ func _chase_logic(_delta):
 
 func _attack_logic(_delta):
 	velocity = Vector2.ZERO
-	# Override in subclass
 
 func _update_animation():
 	var anim_prefix = "walk"
@@ -143,18 +131,8 @@ func _update_ui_position():
 	hearts_container.position = relative_offset
 	health_bar.position = relative_offset + Vector2(-10, 0)
 
-func _check_contact_damage():
-	if not can_damage: return
-
-	var hitbox = get_node_or_null("Hitbox")
-	if hitbox:
-		for body in hitbox.get_overlapping_bodies():
-			if body.is_in_group("player") or body.name == "Player":
-				_on_hitbox_body_entered(body)
-				break
-
 func take_damage(amount: int):
-	if is_dead or is_loading: return 
+	if is_dead or is_loading: return
 
 	health -= amount
 	_update_hearts()
@@ -181,7 +159,6 @@ func die():
 	queue_free()
 
 func _update_hearts():
-	# Guarda por si se llama antes de que _setup_ui() termine
 	if not is_instance_valid(hearts_container) or not is_instance_valid(health_bar):
 		return
 
@@ -204,23 +181,3 @@ func _update_hearts():
 	else:
 		hearts_container.visible = true
 		health_bar.visible = false
-
-func _on_hitbox_body_entered(body):
-	if is_dead or not can_damage:
-		return
-
-	if body.has_method("take_damage"):
-		body.take_damage(damage_to_player)
-		can_damage = false
-
-		var tree = get_tree()
-		if tree:
-			await tree.create_timer(damage_cooldown).timeout
-
-		if is_instance_valid(self):
-			can_damage = true
-
-func _on_hitbox_area_entered(area):
-	if is_dead: return
-	if area.name == "AttackArea" or area.is_in_group("player_attack"):
-		take_damage(1)
