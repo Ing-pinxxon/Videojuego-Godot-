@@ -1,32 +1,31 @@
 extends Enemy
+class_name Sombra
 
 @export var projectile_scene: PackedScene = preload("res://scenes/entities/enemies/projectile_enemigo.tscn")
 var attack_timer: float = 0.0
 @export var fire_rate: float = 3.0
+var hit_stun_timer: float = 0.0
+const HIT_STUN_DURATION: float = 0.4
 
 func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
 	max_health = 2
-	show_health_bar = false  # Usa corazones, no barra
-	super._ready()  # Esto ya crea y configura hearts_container
-	
-	# Solo personaliza la posición si es necesario
+	show_health_bar = false
+	super._ready()
+
 	if hearts_container:
 		hearts_container.alignment = BoxContainer.ALIGNMENT_CENTER
-		# Posición relativa al sprite (se ajustará automáticamente)
-		# Si quieres posición absoluta en pantalla, usa CanvasLayer
-	
-	
-
-func _setup_detection():
-	for node in get_tree().get_nodes_in_group("player"):
-		if node is CharacterBody2D:
-			target_player = node
-			break
 
 func _physics_process(_delta):
+	# Cuenta regresiva del hit stun
+	if hit_stun_timer > 0:
+		hit_stun_timer -= _delta
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
 	super._physics_process(_delta)
 	if current_state == State.ATTACK or current_state == State.CHASE:
 		attack_timer += _delta
@@ -34,14 +33,18 @@ func _physics_process(_delta):
 			_shoot()
 			attack_timer = 0.0
 
+func take_damage(amount: int):
+	super.take_damage(amount)
+	# Al recibir daño se queda quieto brevemente
+	hit_stun_timer = HIT_STUN_DURATION
+
 func _attack_logic(_delta):
-	# Even when attacking, maintain distance if player gets too close
 	if target_player:
 		var dist = global_position.distance_to(target_player.global_position)
-		if dist < 150: # If too close, back away
+		if dist < 150:
 			var moveDirection = global_position - target_player.global_position
 			velocity = moveDirection.normalized() * speed
-		elif dist > 250: # If too far, approach slightly
+		elif dist > 250:
 			var moveDirection = target_player.global_position - global_position
 			velocity = moveDirection.normalized() * (speed * 0.5)
 		else:
@@ -50,7 +53,6 @@ func _attack_logic(_delta):
 func _chase_logic(_delta):
 	if target_player:
 		var dist = global_position.distance_to(target_player.global_position)
-		# Maintain distance
 		if dist < 200:
 			var moveDirection = global_position - target_player.global_position
 			velocity = moveDirection.normalized() * speed
@@ -59,11 +61,11 @@ func _chase_logic(_delta):
 
 func _shoot():
 	if is_dead or not target_player: return
-	
+
 	var projectile = projectile_scene.instantiate()
 	projectile.global_position = global_position
 	projectile.direction = (target_player.global_position - global_position).normalized()
 	get_parent().add_child(projectile)
-	
+
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")

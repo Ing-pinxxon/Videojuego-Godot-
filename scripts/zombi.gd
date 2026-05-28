@@ -1,14 +1,15 @@
 extends Enemy
+class_name Zombie
 
 # Zombie is a slow but tanky enemy
 func _ready():
 	speed = 50
 	max_health = 5
 	show_health_bar = true
+	detection_range = 150.0
 	super._ready()
 	health = max_health
-	damage_to_player = 2
-	detection_range = 150.0
+	_update_hearts()
 
 func _setup_detection():
 	for node in get_tree().get_nodes_in_group("player"):

@@ -92,6 +92,7 @@ sprite_frames = SubResource("SpriteFrames_vce2q")
 animation = &"walkRight"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1842529071]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=897177490]
 position = Vector2(-7.5, 5)

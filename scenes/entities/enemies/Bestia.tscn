@@ -106,6 +106,7 @@ animation = &"walkRight"
 frame = 5
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1035475674]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=577538706]
 shape = SubResource("CircleShape2D_42g5d")

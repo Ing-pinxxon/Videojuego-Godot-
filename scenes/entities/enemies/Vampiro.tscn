@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ccp2t2spnc4ef"]
 
-[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/vampiro.gd" id="1_vamp"]
+[ext_resource type="Script" uid="uid://dun78w7ccii4x" path="res://scripts/enemy.gd" id="1_vamp"]
 [ext_resource type="Texture2D" uid="uid://bgmqicielmp03" path="res://assets/sprites/enemies/Vampiro.png" id="1_xmf6a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ubug"]
-radius = 25.0
+radius = 50.08992
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqioe"]
 atlas = ExtResource("1_xmf6a")
@@ -76,23 +76,26 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
-radius = 45.0
+radius = 70.178345
 
 [node name="Vampiro" type="CharacterBody2D" unique_id=849875602 groups=["enemies"]]
 script = ExtResource("1_vamp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=508702965]
 shape = SubResource("CircleShape2D_7ubug")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826121722]
+position = Vector2(-18.999998, -1.9999999)
 scale = Vector2(0.8976377, 1.038793)
 sprite_frames = SubResource("SpriteFrames_xidi6")
 animation = &"walkRight"
 frame = 3
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1123143215]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1901707964]
+position = Vector2(1, -6)
 shape = SubResource("CircleShape2D_hitbox")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

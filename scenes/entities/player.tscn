@@ -607,6 +607,7 @@ shape = SubResource("RectangleShape2D_u4p4d")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=813945899]
 position = Vector2(8, 0)
+collision_mask = 2
 monitoring = false
 monitorable = false
 

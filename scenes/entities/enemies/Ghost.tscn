@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh8ubt0e4bj3i"]
 
-[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_7ubug"]
+[ext_resource type="Script" uid="uid://cct8e7u6dp2fb" path="res://scripts/ghost.gd" id="1_7ubug"]
 [ext_resource type="Texture2D" uid="uid://83yiq6so8mou" path="res://assets/sprites/enemies/Enemy1Left.png" id="2_v2qct"]
 [ext_resource type="Texture2D" uid="uid://dt6nhdmmlgagw" path="res://assets/sprites/enemies/Enemy1Right.png" id="3_svwsq"]
 
@@ -77,24 +77,24 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hitbox"]
-radius = 60.033325
+radius = 44.181442
 
 [node name="Ghost" type="CharacterBody2D" unique_id=1857393775 groups=["enemies"]]
-
 script = ExtResource("1_7ubug")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071645602]
 shape = SubResource("CircleShape2D_7ubug")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=108554384]
 scale = Vector2(6.25, 5.4374995)
 sprite_frames = SubResource("SpriteFrames_n5ih8")
 animation = &"walkRight"
 frame = 3
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=825545161]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=578681463]
 shape = SubResource("CircleShape2D_hitbox")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

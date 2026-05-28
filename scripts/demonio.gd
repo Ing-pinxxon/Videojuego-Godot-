@@ -1,4 +1,5 @@
 extends Enemy
+class_name Demonio
 
 # Demonio is a high damage, high health, slow enemy
 func _ready():
@@ -6,7 +7,6 @@ func _ready():
 	speed = 60
 	max_health = 8
 	health = max_health
-	damage_to_player = 3
 	detection_range = 200.0
 
 func _setup_detection():

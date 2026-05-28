@@ -5,22 +5,24 @@ extends CharacterBody2D
 var interfaz_canvas: CanvasLayer
 var interfaz_instancia: Control
 
-@export var max_health = 5
-var speed = 250.0
-@export var attack_cooldown = 0.5
+@export var max_health: int = 5
+var speed: float = 250.0
+@export var attack_cooldown: float = 0.5
 
-var health = max_health
-var can_attack = true
-var is_attacking = false
+var health: int = 5
+var can_attack: bool = true
+var is_attacking: bool = false
 
-var last_direction = "up"
-var is_invincible = false
-@export var invincibility_duration = 1.0
+var last_direction: String = "up"
+var is_invincible: bool = false
+@export var invincibility_duration: float = 1.0
 
-var hearts_container : HBoxContainer
+var hearts_container: HBoxContainer
 var heart_texture = preload("res://assets/ui/heart.png")
 
 func _ready():
+	health = max_health if max_health > 0 else 5
+
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.monitorable = false
@@ -30,8 +32,6 @@ func _ready():
 		var shape = attack_area.get_node("CollisionShape2D").shape
 		if shape is RectangleShape2D:
 			shape.size = Vector2(40, 40)
-
-	health = max_health
 
 	hearts_container = HBoxContainer.new()
 	hearts_container.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -52,7 +52,6 @@ func _ready():
 	else:
 		interfaz_instancia.hide()
 
-	# Esperar al final del frame para que todos los enemigos terminen su _ready()
 	if GlobalState.should_load_game:
 		call_deferred("_apply_save_deferred")
 
@@ -62,7 +61,6 @@ func _ready():
 
 	get_tree().paused = false
 
-# Se ejecuta al final del frame, cuando toda la escena ya cargó
 func _apply_save_deferred():
 	GlobalState.apply_load_game(self)
 
@@ -77,7 +75,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func get_input():
-	var input_direction = Input.get_vector("left","right","up","down")
+	var input_direction = Input.get_vector("left", "right", "up", "down")
 
 	if input_direction == Vector2.ZERO:
 		velocity = Vector2.ZERO
@@ -85,20 +83,14 @@ func get_input():
 		return
 
 	if abs(input_direction.x) > abs(input_direction.y):
-		if input_direction.x > 0:
-			last_direction = "right"
-		else:
-			last_direction = "left"
+		last_direction = "right" if input_direction.x > 0 else "left"
 	else:
-		if input_direction.y > 0:
-			last_direction = "down"
-		else:
-			last_direction = "up"
+		last_direction = "down" if input_direction.y > 0 else "up"
 
 	update_animation("run")
 	velocity = input_direction * speed
 
-func update_animation(state):
+func update_animation(state: String):
 	animated_sprite_2d.play(state + "_" + last_direction)
 
 func attack():
@@ -134,18 +126,19 @@ func attack():
 func _position_attack_area():
 	if not attack_area: return
 
-	if last_direction == "right":
-		attack_area.position = Vector2(18, 9)
-		attack_area.rotation_degrees = 0
-	elif last_direction == "left":
-		attack_area.position = Vector2(2, 9)
-		attack_area.rotation_degrees = 180
-	elif last_direction == "up":
-		attack_area.position = Vector2(10, 1)
-		attack_area.rotation_degrees = -90
-	elif last_direction == "down":
-		attack_area.position = Vector2(10, 17)
-		attack_area.rotation_degrees = 90
+	match last_direction:
+		"right":
+			attack_area.position = Vector2(18, 9)
+			attack_area.rotation_degrees = 0
+		"left":
+			attack_area.position = Vector2(2, 9)
+			attack_area.rotation_degrees = 180
+		"up":
+			attack_area.position = Vector2(10, 1)
+			attack_area.rotation_degrees = -90
+		"down":
+			attack_area.position = Vector2(10, 17)
+			attack_area.rotation_degrees = 90
 
 func take_damage(amount: int):
 	if is_invincible: return
@@ -192,7 +185,6 @@ func die():
 	get_tree().change_scene_to_file("res://scenes/Nivel_1.tscn")
 
 func _on_attack_area_entered(area):
-	print("DEBUG: Player AttackArea entró en: ", area.name, " del objeto: ", area.get_parent().name)
 	var enemy = area.get_parent()
 	if enemy and enemy.has_method("take_damage"):
 		enemy.take_damage(1)
