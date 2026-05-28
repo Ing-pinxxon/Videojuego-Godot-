@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dtmtw78axkt15"]
 
-[ext_resource type="Script" uid="uid://1l1og0tl62xj" path="res://scripts/interfaz.gd" id="1_4beie"]
-[ext_resource type="Texture2D" uid="uid://dfkt48ewf0dyp" path="res://assets/ui/interfazPrincipal.png" id="1_8jxbj"]
-[ext_resource type="Texture2D" uid="uid://b37ntpf3rh5s2" path="res://assets/ui/Boton.png" id="2_d7cl7"]
+[ext_resource type="Script" uid="uid://1l1og0tl62xj" path="res://scripts/interfazPrincipal.gd" id="1_ivlbo"]
+[ext_resource type="Texture2D" uid="uid://dfkt48ewf0dyp" path="res://assets/ui/interfazPrincipal.png" id="2_4apcm"]
+[ext_resource type="Texture2D" uid="uid://b37ntpf3rh5s2" path="res://assets/ui/Boton.png" id="3_53j3m"]
 
 [node name="ControlInterfaz" type="Control" unique_id=2131523978]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_4beie")
+script = ExtResource("1_ivlbo")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=945622568]
 layout_mode = 0
@@ -16,7 +16,7 @@ offset_left = 300.0
 offset_top = -59.0
 offset_right = 1260.0
 offset_bottom = 1047.0
-texture = ExtResource("1_8jxbj")
+texture = ExtResource("2_4apcm")
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=41809128]
@@ -31,7 +31,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.82665485, 0.94268954, 0.1480628, 1)
 theme_override_font_sizes/font_size = 33
 text = "PLAY"
-icon = ExtResource("2_d7cl7")
+icon = ExtResource("3_53j3m")
 icon_alignment = 1
 
 [node name="Continuar" type="Button" parent="TextureRect/VBoxContainer" unique_id=745234578]
@@ -39,23 +39,15 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.12941177, 1, 0.20392157, 1)
 theme_override_font_sizes/font_size = 23
 text = "CONTINUAR"
-icon = ExtResource("2_d7cl7")
+icon = ExtResource("3_53j3m")
 icon_alignment = 1
 
-[node name="Guardar" type="Button" parent="TextureRect/VBoxContainer" unique_id=548414159]
+[node name="Reiniciar Partidas" type="Button" parent="TextureRect/VBoxContainer" unique_id=1227059480]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.12941177, 1, 0.20392157, 1)
 theme_override_font_sizes/font_size = 24
-text = "GUARDAR"
-icon = ExtResource("2_d7cl7")
-icon_alignment = 1
-
-[node name="Reiniciar" type="Button" parent="TextureRect/VBoxContainer" unique_id=1227059480]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.12941177, 1, 0.20392157, 1)
-theme_override_font_sizes/font_size = 24
-text = "REINICIAR"
-icon = ExtResource("2_d7cl7")
+text = "REINICIAR JUEGO"
+icon = ExtResource("3_53j3m")
 icon_alignment = 1
 
 [node name="Salir" type="Button" parent="TextureRect/VBoxContainer" unique_id=267605039]
@@ -63,11 +55,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.88, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "SALIR"
-icon = ExtResource("2_d7cl7")
+icon = ExtResource("3_53j3m")
 icon_alignment = 1
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/Guardar" to="." method="_on_guardar_pressed"]
-[connection signal="pressed" from="TextureRect/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Reiniciar Partidas" to="." method="_on_reiniciar_partidas_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
