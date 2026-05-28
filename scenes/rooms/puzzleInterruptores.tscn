@@ -2,19 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cjo5jxk3j5j28" path="res://scripts/puzzle_interruptores.gd" id="1_kf74i"]
 [ext_resource type="Script" uid="uid://cqn4bnpam7y3c" path="res://scripts/interruptor.gd" id="2_ha6y0"]
+[ext_resource type="Texture2D" uid="uid://c5w2rn4bcjap6" path="res://assets/puzzle/BotonPiso.png" id="3_k64vs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xch3h"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kf74i"]
+size = Vector2(36, 51.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf74i"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ha6y0"]
+size = Vector2(40, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha6y0"]
-size = Vector2(26, 18)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_04kfk"]
+size = Vector2(39, 51)
 
 [node name="PuzzleInterruptores" type="Node2D" unique_id=478965853]
 script = ExtResource("1_kf74i")
@@ -24,10 +21,13 @@ position = Vector2(79, 216)
 script = ExtResource("2_ha6y0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_1" unique_id=1220116432]
+position = Vector2(2, -1)
 shape = SubResource("RectangleShape2D_xch3h")
 
 [node name="Sprite2D" type="Sprite2D" parent="Interruptor_1" unique_id=1402621900]
-texture = SubResource("PlaceholderTexture2D_kf74i")
+position = Vector2(0.24999961, -2)
+scale = Vector2(0.271978, 0.3156426)
+texture = ExtResource("3_k64vs")
 
 [node name="Interruptor_2" type="Area2D" parent="." unique_id=356595618]
 position = Vector2(277, 218)
@@ -35,11 +35,13 @@ script = ExtResource("2_ha6y0")
 numero = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_2" unique_id=1818454051]
-position = Vector2(-2, 1)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_kf74i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Interruptor_2" unique_id=817235384]
-texture = SubResource("PlaceholderTexture2D_ha6y0")
+position = Vector2(-3.8146973e-06, -1.9999962)
+scale = Vector2(0.30082417, 0.3205307)
+texture = ExtResource("3_k64vs")
 
 [node name="Interruptor_3" type="Area2D" parent="." unique_id=1681043949]
 position = Vector2(444, 229)
@@ -47,13 +49,13 @@ script = ExtResource("2_ha6y0")
 numero = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interruptor_3" unique_id=1518261545]
-position = Vector2(-1, -1)
+position = Vector2(2.5, -0.5)
 shape = SubResource("RectangleShape2D_ha6y0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Interruptor_3" unique_id=254060765]
-position = Vector2(-1, -1)
-scale = Vector2(-24, -25)
-texture = SubResource("PlaceholderTexture2D_04kfk")
+[node name="Sprite2D" type="Sprite2D" parent="Interruptor_3" unique_id=526020203]
+position = Vector2(-3.8146973e-06, -1.9999962)
+scale = Vector2(0.30082417, 0.3205307)
+texture = ExtResource("3_k64vs")
 
 [connection signal="body_entered" from="Interruptor_1" to="." method="_on_interruptor_1_body_entered"]
 [connection signal="body_exited" from="Interruptor_1" to="." method="_on_interruptor_1_body_exited"]

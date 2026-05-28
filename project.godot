@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="juego_prueba"
-run/main_scene="uid://dsmk4xo67xaqv"
+run/main_scene="uid://dtmtw78axkt15"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [autoload]
 
-GlobalState="*res://scripts/global_state.gd"
+GlobalState="*uid://yabpr86b4uyw"
 
 [display]
 

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bapmxld3uqh76" path="res://scripts/sombra.gd" id="1_mqguq"]
 [ext_resource type="Texture2D" uid="uid://iv2ipr5tekbk" path="res://assets/sprites/enemies/Sombra.png" id="2_kfgrb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipp6e"]
-size = Vector2(83, 137)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jile"]
+radius = 32.87096
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myr5f"]
 atlas = ExtResource("2_kfgrb")
@@ -75,15 +75,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqguq"]
-size = Vector2(84, 126)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqcgb"]
+radius = 50.855186
 
 [node name="Sombra" type="CharacterBody2D" unique_id=35652048 groups=["enemies"]]
 script = ExtResource("1_mqguq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1229917339]
-position = Vector2(1, 2)
-shape = SubResource("RectangleShape2D_ipp6e")
+position = Vector2(-4.5, 5.5)
+shape = SubResource("CircleShape2D_4jile")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2052631879]
 position = Vector2(1, 1)
@@ -94,8 +94,8 @@ animation = &"walkRight"
 [node name="Hitbox" type="Area2D" parent="." unique_id=1842529071]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=897177490]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_mqguq")
+position = Vector2(-7.5, 5)
+shape = SubResource("CircleShape2D_xqcgb")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

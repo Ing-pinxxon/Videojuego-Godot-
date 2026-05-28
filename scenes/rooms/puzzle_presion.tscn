@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://bmeyjwfaqedxi" path="res://scripts/puzzle_presion.gd" id="1_35kfl"]
 [ext_resource type="Script" uid="uid://dr1ad86v2ekhh" path="res://scripts/plataforma_presion.gd" id="2_sv77j"]
 [ext_resource type="Script" uid="uid://cr4lbtcffmqjw" path="res://scripts/objeto_empujable.gd" id="3_01yv3"]
+[ext_resource type="Texture2D" uid="uid://ds4cjgrwhwynh" path="res://assets/puzzle/Baldosa.png" id="3_ndxwp"]
+[ext_resource type="Texture2D" uid="uid://d32p3wb8ew2bo" path="res://assets/puzzle/Roca.png" id="5_6qino"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rflua"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_35kfl"]
+size = Vector2(64, 49.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sv77j"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_01yv3"]
+size = Vector2(56, 46)
 
 [node name="PuzzlePresion" type="Node2D" unique_id=1575921612]
 position = Vector2(-1, -1)
@@ -21,19 +21,23 @@ position = Vector2(207, 204)
 script = ExtResource("2_sv77j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlataformaPresion_1" unique_id=1154807605]
-position = Vector2(-1, -1)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_rflua")
 
 [node name="Sprite2D" type="Sprite2D" parent="PlataformaPresion_1" unique_id=2106351042]
-texture = SubResource("PlaceholderTexture2D_35kfl")
+position = Vector2(-1, 1)
+scale = Vector2(-0.17953987, -0.14132968)
+texture = ExtResource("3_ndxwp")
 
 [node name="ObjetoEmpujable_1" type="CharacterBody2D" parent="." unique_id=1948001844]
 position = Vector2(428, 212)
 script = ExtResource("3_01yv3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetoEmpujable_1" unique_id=2139654149]
-position = Vector2(1, 0)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_sv77j")
 
 [node name="Sprite2D" type="Sprite2D" parent="ObjetoEmpujable_1" unique_id=1376657866]
-texture = SubResource("PlaceholderTexture2D_01yv3")
+position = Vector2(1.0000067, 4.75)
+scale = Vector2(0.18939403, 0.19377981)
+texture = ExtResource("5_6qino")

@@ -1,8 +1,8 @@
-extends enemy
+extends Enemy
 
 @export var projectile_scene: PackedScene = preload("res://scenes/entities/enemies/projectile_enemigo.tscn")
 var attack_timer: float = 0.0
-@export var fire_rate: float = 2.0
+@export var fire_rate: float = 3.0
 
 func _ready():
 	speed = 80
@@ -10,7 +10,6 @@ func _ready():
 	attack_range = 300.0
 	max_health = 2
 	show_health_bar = false  # Usa corazones, no barra
-	
 	super._ready()  # Esto ya crea y configura hearts_container
 	
 	# Solo personaliza la posición si es necesario

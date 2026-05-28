@@ -628,11 +628,11 @@ offset_bottom = 259.0
 text = "Presiona [M] para ver o olcutar el minimapa
 Presiona [ESPACIO] Abrir / Cerrar puerta"
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=550440271]
+[node name="ButtonMenu" type="TextureButton" parent="." unique_id=550440271]
 offset_left = 336.0
 offset_top = -255.0
 offset_right = 386.0
 offset_bottom = -208.0
 texture_normal = ExtResource("14_saib0")
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ButtonMenu" to="." method="_on_texture_button_pressed"]

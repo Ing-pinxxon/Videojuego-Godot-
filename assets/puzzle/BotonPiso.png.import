@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buvjx6c6pxu3q"
-path="res://.godot/imported/palanca.png-8c2588e4ece2893811d61f98d1903eb6.ctex"
+uid="uid://c5w2rn4bcjap6"
+path="res://.godot/imported/BotonPiso.png-0d4bc0579f546c48459aa846e0cab40f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/palanca.png"
-dest_files=["res://.godot/imported/palanca.png-8c2588e4ece2893811d61f98d1903eb6.ctex"]
+source_file="res://assets/puzzle/BotonPiso.png"
+dest_files=["res://.godot/imported/BotonPiso.png-0d4bc0579f546c48459aa846e0cab40f.ctex"]
 
 [params]
 
