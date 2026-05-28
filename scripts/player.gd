@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2d
 @onready var attack_area = $AttackArea
-@onready var interfaz_escena = preload("res://scenes/interfaz.tscn")
+@onready var interfaz_escena = preload("res://scenes/interfazMenu.tscn")
 var interfaz_canvas: CanvasLayer
 var interfaz_instancia: Control
 
@@ -203,3 +203,7 @@ func _on_texture_button_pressed():
 				interfaz_instancia.show_menu()
 			else:
 				interfaz_instancia.show()
+
+
+func _on_button_salir_pressed() -> void:
+	pass # Replace with function body.

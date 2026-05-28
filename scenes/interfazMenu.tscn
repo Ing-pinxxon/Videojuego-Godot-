@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://i4nbsbopdyih"]
+
+[ext_resource type="Script" uid="uid://c7bcik4rldoe4" path="res://scripts/interfaz_menu.gd" id="1_f2tor"]
+[ext_resource type="Texture2D" uid="uid://dfkt48ewf0dyp" path="res://assets/ui/interfazPrincipal.png" id="2_ol66q"]
+[ext_resource type="Texture2D" uid="uid://b37ntpf3rh5s2" path="res://assets/ui/Boton.png" id="3_1y8p1"]
+
+[node name="InterfazMenu" type="Control" unique_id=1564167412]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_f2tor")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1800924541]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -59.0
+offset_right = 1260.0
+offset_bottom = 1047.0
+texture = ExtResource("2_ol66q")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=505106391]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 408.0
+offset_right = 667.0
+offset_bottom = 833.0
+
+[node name="Continuar" type="Button" parent="TextureRect/VBoxContainer" unique_id=1167571953]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12941177, 1, 0.20392157, 1)
+theme_override_font_sizes/font_size = 23
+text = "CONTINUAR"
+icon = ExtResource("3_1y8p1")
+icon_alignment = 1
+
+[node name="Guardar" type="Button" parent="TextureRect/VBoxContainer" unique_id=1364075750]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12941177, 1, 0.20392157, 1)
+theme_override_font_sizes/font_size = 24
+text = "GUARDAR"
+icon = ExtResource("3_1y8p1")
+icon_alignment = 1
+
+[node name="Salir" type="Button" parent="TextureRect/VBoxContainer" unique_id=228421236]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "SALIR"
+icon = ExtResource("3_1y8p1")
+icon_alignment = 1
+
+[node name="Notificacion" type="Label" parent="." unique_id=1131317152]
+visible = false
+layout_mode = 0
+offset_left = 562.0
+offset_top = 643.0
+offset_right = 1040.0
+offset_bottom = 680.0
+theme_override_colors/font_color = Color(0.9882353, 1, 0.27450982, 1)
+theme_override_font_sizes/font_size = 27
+text = "Partida guardada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Guardar" to="." method="_on_guardar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Guardar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
