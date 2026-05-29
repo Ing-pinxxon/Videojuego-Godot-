@@ -8856,7 +8856,7 @@ position = Vector2(528, 330)
 position = Vector2(1019, 710)
 
 [node name="PuzzleAntorchas" parent="." unique_id=716822234 instance=ExtResource("5_bnsqj")]
-position = Vector2(-24, -25)
+position = Vector2(9.000008, -309)
 scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

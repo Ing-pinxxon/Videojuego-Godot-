@@ -7626,7 +7626,7 @@ shape = SubResource("RectangleShape2D_loi1j")
 
 [node name="Enemy" parent="." unique_id=1582164811 instance=ExtResource("4_k7nx2")]
 z_index = 5
-position = Vector2(601, 441)
+position = Vector2(703, 462)
 
 [node name="PuzzlePresion" parent="." unique_id=1575921612 instance=ExtResource("5_yrndg")]
 position = Vector2(649, 507)

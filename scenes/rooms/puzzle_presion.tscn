@@ -34,6 +34,7 @@ texture = ExtResource("3_ndxwp")
 
 [node name="ObjetoEmpujable_1" type="CharacterBody2D" parent="." unique_id=1948001844]
 position = Vector2(250, 164)
+collision_mask = 2
 script = ExtResource("3_01yv3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetoEmpujable_1" unique_id=2139654149]

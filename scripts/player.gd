@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var interfaz_escena = preload("res://scenes/interfazMenu.tscn")
 var interfaz_canvas: CanvasLayer
 var interfaz_instancia: Control
+var objeto_cercano = null
+var objeto_cargado = null
 
 @export var max_health: int = 5
 var speed: float = 250.0
@@ -73,11 +75,14 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var col = get_slide_collision(i)
-		var obj = col.get_collider()
-		if obj and obj.is_in_group("empujable"):
-			obj.velocity = velocity.normalized() * 70.0
+
+	# Solo empujar objetos si NO estamos cargando uno
+	if objeto_cargado == null:
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			var obj = col.get_collider()
+			if obj and obj.is_in_group("empujable"):
+				obj.velocity = velocity.normalized() * 70.0
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -209,6 +214,26 @@ func _on_texture_button_pressed():
 			else:
 				interfaz_instancia.show()
 
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("empujable"):
+		objeto_cercano = body
 
-func _on_button_salir_pressed() -> void:
-	pass # Replace with function body.
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("empujable"):
+		if objeto_cercano == body:
+			objeto_cercano = null
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_accept"):
+		if objeto_cargado == null and objeto_cercano != null:
+			objeto_cargado = objeto_cercano
+			objeto_cercano = null
+			objeto_cargado.ser_recogido(self)
+		elif objeto_cargado != null:
+			objeto_cargado.ser_soltado()
+			objeto_cargado = null
+
+func soltar_objeto():
+	if objeto_cargado != null:
+		objeto_cargado.ser_soltado()
+		objeto_cargado = null

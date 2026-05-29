@@ -588,6 +588,9 @@ size = Vector2(63, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lowl5"]
 size = Vector2(124, 89)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saib0"]
+size = Vector2(82, 67)
+
 [node name="Player" type="CharacterBody2D" unique_id=273606343]
 position = Vector2(71, 87)
 script = ExtResource("1_3j5lm")
@@ -616,17 +619,23 @@ shape = SubResource("RectangleShape2D_lowl5")
 debug_color = Color(0.9, 0.1, 0.1, 0.4)
 metadata/_edit_group_ = true
 
+[node name="Area2D" type="Area2D" parent="." unique_id=1599740513]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1308640076]
+position = Vector2(49, -9.5)
+shape = SubResource("RectangleShape2D_saib0")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2099787902]
 zoom = Vector2(1.93, 1.93)
 
 [node name="Label" type="Label" parent="." unique_id=2135120132]
 light_mask = 2
-offset_left = 50.0
+offset_left = -110.0
 offset_top = 210.0
-offset_right = 390.0
+offset_right = 396.0
 offset_bottom = 259.0
 text = "Presiona [M] para ver o olcutar el minimapa
-Presiona [ESPACIO] Abrir / Cerrar puerta"
+Presiona [ESPACIO] Abrir / Cerrar puerta y resolver los pluzzles"
 
 [node name="ButtonSalir" type="TextureButton" parent="." unique_id=550440271]
 offset_left = 336.0
@@ -635,5 +644,7 @@ offset_right = 386.0
 offset_bottom = -208.0
 texture_normal = ExtResource("14_saib0")
 
-[connection signal="pressed" from="ButtonSalir" to="." method="_on_texture_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="ButtonSalir" to="." method="_on_button_salir_pressed"]
+[connection signal="pressed" from="ButtonSalir" to="." method="_on_texture_button_pressed"]

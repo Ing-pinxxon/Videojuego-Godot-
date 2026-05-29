@@ -2,20 +2,43 @@
 
 [ext_resource type="Script" uid="uid://bv3551h6ukidv" path="res://scripts/puzzle_antorchas.gd" id="1_7c6qs"]
 [ext_resource type="Script" uid="uid://d24y1dxkeq3g3" path="res://scripts/antorcha.gd" id="2_vchu0"]
+[ext_resource type="Texture2D" uid="uid://c6xtb8knim1gv" path="res://assets/puzzle/antorchas.png" id="3_tab8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvva3"]
-size = Vector2(21, 20)
+size = Vector2(19.75, 33.25)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7c6qs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8grm"]
+atlas = ExtResource("3_tab8x")
+region = Rect2(75, 0, 75, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvhu2"]
+atlas = ExtResource("3_tab8x")
+region = Rect2(0, 0, 75, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xume6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8grm")
+}],
+"loop": true,
+"name": &"apagada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvhu2")
+}],
+"loop": true,
+"name": &"encendida",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c6qs"]
-size = Vector2(20, 22)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vchu0"]
+size = Vector2(27, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vchu0"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tab8x"]
+size = Vector2(22, 35.5)
 
 [node name="PuzzleAntorchas" type="Node2D" unique_id=716822234]
 position = Vector2(1, 2)
@@ -26,13 +49,14 @@ position = Vector2(135, 153)
 script = ExtResource("2_vchu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_1" unique_id=1684680422]
-position = Vector2(1.5, 0)
+position = Vector2(44.875, 2.625)
 shape = SubResource("RectangleShape2D_lvva3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Antorcha_1" unique_id=1329326040]
-position = Vector2(2, 0)
-scale = Vector2(19.5, 16.5)
-texture = SubResource("PlaceholderTexture2D_7c6qs")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Antorcha_1" unique_id=1056755378]
+position = Vector2(45.150394, 4.558595)
+scale = Vector2(0.45734388, 0.20744789)
+sprite_frames = SubResource("SpriteFrames_xume6")
+animation = &"apagada"
 
 [node name="Antorcha_2" type="Area2D" parent="." unique_id=1481035244]
 position = Vector2(265, 158)
@@ -40,13 +64,14 @@ script = ExtResource("2_vchu0")
 numero = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_2" unique_id=1083803422]
-position = Vector2(1.5, 0)
+position = Vector2(74.5, 0)
 shape = SubResource("RectangleShape2D_7c6qs")
 
-[node name="Sprite2D" type="Sprite2D" parent="Antorcha_2" unique_id=1252420840]
-position = Vector2(2, 0)
-scale = Vector2(16, 16)
-texture = SubResource("PlaceholderTexture2D_vchu0")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Antorcha_2" unique_id=373510670]
+position = Vector2(75.24219, 0.35058594)
+scale = Vector2(0.48645848, 0.25800785)
+sprite_frames = SubResource("SpriteFrames_xume6")
+animation = &"apagada"
 
 [node name="Antorcha_3" type="Area2D" parent="." unique_id=1941319390]
 position = Vector2(378, 162)
@@ -54,13 +79,14 @@ script = ExtResource("2_vchu0")
 numero = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Antorcha_3" unique_id=1926555864]
-position = Vector2(-0.36349487, 0)
+position = Vector2(2, -3.25)
 shape = SubResource("RectangleShape2D_vchu0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Antorcha_3" unique_id=1772814633]
-position = Vector2(-1.3634949, -1)
-scale = Vector2(7.273, 16)
-texture = SubResource("PlaceholderTexture2D_tab8x")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Antorcha_3" unique_id=1276027482]
+position = Vector2(2.1025567, -1.8164077)
+scale = Vector2(0.45606774, 0.2291146)
+sprite_frames = SubResource("SpriteFrames_xume6")
+animation = &"apagada"
 
 [connection signal="body_entered" from="Antorcha_1" to="." method="_on_antorcha_1_body_entered"]
 [connection signal="body_exited" from="Antorcha_1" to="." method="_on_antorcha_1_body_exited"]
