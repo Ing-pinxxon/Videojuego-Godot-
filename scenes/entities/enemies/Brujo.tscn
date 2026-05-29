@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://8mav2ivoj222" path="res://scripts/brujo.gd" id="1_ii3i3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nufoh"]
-radius = 53.15073
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ii3i3"]
 atlas = ExtResource("1_d67u2")
@@ -71,7 +71,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4bie5"]
-radius = 81.88406
+radius = 28.0
 
 [node name="Brujo" type="CharacterBody2D" unique_id=253996987 groups=["enemies"]]
 script = ExtResource("1_ii3i3")

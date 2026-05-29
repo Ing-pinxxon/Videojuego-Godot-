@@ -36,6 +36,7 @@ func antorcha_encendida(numero: int) -> void:
 
 	# Agrega el número de la antorcha
 	# a la secuencia actual
+
 	secuencia_actual.append(numero)
 
 	# Muestra la secuencia actual en consola

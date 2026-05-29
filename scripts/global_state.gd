@@ -1,6 +1,7 @@
 extends Node
 
-# ── ESTADO GENERAL ───────────────────────────────────────
+# Flag global para el modo prueba (Inmortalidad + Kills de 1 golpe)
+var modo_prueba: bool = false
 
 # Habitaciones que el jugador ha visitado (clave: nombre de sala, valor: true)
 var rooms_visited = {}
@@ -30,6 +31,8 @@ func resolver_puzzle(nombre_habitacion: String) -> void:
 
 # Devuelve true si el puzzle de la habitación indicada ya fue resuelto
 func puzzle_esta_resuelto(nombre_habitacion: String) -> bool:
+	if modo_prueba:
+		return true
 	return puzzles_resueltos.get(nombre_habitacion, false)
 
 

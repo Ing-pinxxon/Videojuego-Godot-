@@ -55,12 +55,18 @@ func _process(delta):
 func abrir_puerta():
 	# NO abrir si hay enemigos
 	if _hay_enemigos_vivos():
-		print("⚠️ Elimina todos los enemigos primero")
-		return
+		if "modo_prueba" in GlobalState and GlobalState.modo_prueba:
+			print("🛡️ [Modo Prueba] Ignorando enemigos vivos para abrir la puerta.")
+		else:
+			print("⚠️ Elimina todos los enemigos primero")
+			return
 	
 	if requiere_puzzle_de != "" and not GlobalState.puzzle_esta_resuelto(requiere_puzzle_de):
-		print("🔒 Resuelve el puzzle primero")
-		return
+		if "modo_prueba" in GlobalState and GlobalState.modo_prueba:
+			print("🛡️ [Modo Prueba] Ignorando puzzle no resuelto para abrir la puerta.")
+		else:
+			print("🔒 Resuelve el puzzle primero")
+			return
 	
 	abrir_puerta_y_cambiar()
 

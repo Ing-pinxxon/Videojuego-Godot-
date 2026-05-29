@@ -11,6 +11,16 @@ func interruptor_presionado(numero: int) -> void:
 	if resuelto:
 		return
 	
+	if "modo_prueba" in GlobalState and GlobalState.modo_prueba:
+		resuelto = true
+		GlobalState.resolver_puzzle(get_parent().name)
+		emit_signal("puzzle_completado")
+		print("🛡️ [Modo Prueba] Auto-resolviendo puzzle de interruptores!")
+		for child in get_children():
+			if child is Area2D and child.has_node("Sprite2D"):
+				child.get_node("Sprite2D").modulate = Color(0.95, 0.75, 0.15, 1.0)
+		return
+
 	secuencia_actual.append(numero)
 	print("Secuencia actual: ", secuencia_actual)
 	

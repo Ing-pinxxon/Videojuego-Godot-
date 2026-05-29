@@ -11,8 +11,9 @@ func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
+	attack_timer = fire_rate - 0.5
 	super._ready()
 
 	if hearts_container:
@@ -63,9 +64,10 @@ func _shoot():
 	if is_dead or not target_player: return
 
 	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
 	projectile.direction = (target_player.global_position - global_position).normalized()
 	get_parent().add_child(projectile)
+	# En Godot 4, se debe asignar global_position DESPUÉS de add_child para evitar desfases del padre
+	projectile.global_position = global_position
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")

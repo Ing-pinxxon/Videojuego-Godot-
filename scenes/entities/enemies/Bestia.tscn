@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cp041ou264b5n" path="res://assets/sprites/enemies/Bestia.png" id="2_832xn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_de0es"]
-radius = 54.00926
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_832xn"]
 atlas = ExtResource("2_832xn")
@@ -90,9 +90,9 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_42g5d"]
-radius = 50.0
+radius = 28.0
 
-[node name="Bestia" type="CharacterBody2D" unique_id=495155128]
+[node name="Bestia" type="CharacterBody2D" unique_id=495155128 groups=["enemies"]]
 script = ExtResource("1_f2qrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=74786999]

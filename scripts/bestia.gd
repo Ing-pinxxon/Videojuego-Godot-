@@ -11,7 +11,7 @@ func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
 	super._ready()
 
@@ -62,10 +62,54 @@ func _chase_logic(_delta):
 func _shoot():
 	if is_dead or not target_player: return
 
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = (target_player.global_position - global_position).normalized()
-	get_parent().add_child(projectile)
+	var shockwave = Shockwave.new()
+	get_parent().add_child(shockwave)
+	shockwave.global_position = global_position
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")
+
+class Shockwave extends Area2D:
+	var current_radius: float = 0.0
+	const MAX_RADIUS: float = 90.0
+	const SPEED: float = 180.0 # Reaches 90 in 0.5s
+	var player_hit: bool = false
+	var line: Line2D = null
+	var collision_shape: CollisionShape2D = null
+	var circle_shape: CircleShape2D = null
+
+	func _ready():
+		collision_shape = CollisionShape2D.new()
+		circle_shape = CircleShape2D.new()
+		circle_shape.radius = 1.0
+		collision_shape.shape = circle_shape
+		add_child(collision_shape)
+
+		line = Line2D.new()
+		line.default_color = Color.ORANGE
+		line.width = 3.0
+		# Generate a unit circle
+		var num_points = 32
+		for i in range(num_points + 1):
+			var angle = float(i) / num_points * TAU
+			line.add_point(Vector2(cos(angle), sin(angle)))
+		add_child(line)
+
+		body_entered.connect(_on_body_entered)
+
+	func _physics_process(delta):
+		current_radius += SPEED * delta
+		if current_radius >= MAX_RADIUS:
+			queue_free()
+			return
+
+		# Update visual circle size
+		line.scale = Vector2(current_radius, current_radius)
+		# Update physical collision radius
+		circle_shape.radius = current_radius
+
+	func _on_body_entered(body: Node2D):
+		if not player_hit and (body.is_in_group("player") or body.name == "Player"):
+			player_hit = true
+			if body.has_method("take_damage"):
+				body.take_damage(1)

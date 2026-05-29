@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://iv2ipr5tekbk" path="res://assets/sprites/enemies/Sombra.png" id="2_kfgrb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jile"]
-radius = 32.87096
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_myr5f"]
 atlas = ExtResource("2_kfgrb")
@@ -76,13 +76,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqcgb"]
-radius = 50.855186
+radius = 28.0
 
 [node name="Sombra" type="CharacterBody2D" unique_id=35652048 groups=["enemies"]]
 script = ExtResource("1_mqguq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1229917339]
-position = Vector2(-4.5, 5.5)
 shape = SubResource("CircleShape2D_4jile")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2052631879]
@@ -95,7 +94,6 @@ animation = &"walkRight"
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=897177490]
-position = Vector2(-7.5, 5)
 shape = SubResource("CircleShape2D_xqcgb")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

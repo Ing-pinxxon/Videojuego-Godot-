@@ -11,7 +11,7 @@ func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
 	super._ready()
 
@@ -62,10 +62,63 @@ func _chase_logic(_delta):
 func _shoot():
 	if is_dead or not target_player: return
 
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = (target_player.global_position - global_position).normalized()
-	get_parent().add_child(projectile)
+	var puddle = ShadowPuddle.new()
+	get_parent().add_child(puddle)
+	puddle.global_position = target_player.global_position
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")
+
+class ShadowPuddle extends Area2D:
+	var player_ref: Node2D = null
+	var damage_timer: Timer = null
+
+	func _ready():
+		# Create collision shape
+		var collision_shape = CollisionShape2D.new()
+		var circle_shape = CircleShape2D.new()
+		circle_shape.radius = 35.0
+		collision_shape.shape = circle_shape
+		add_child(collision_shape)
+
+		# Create timer for periodic damage
+		damage_timer = Timer.new()
+		damage_timer.wait_time = 2.5
+		damage_timer.one_shot = false
+		damage_timer.timeout.connect(_on_damage_timer_timeout)
+		add_child(damage_timer)
+
+		# Connect body entered/exited signals
+		body_entered.connect(_on_body_entered)
+		body_exited.connect(_on_body_exited)
+
+		# Draw puddle
+		queue_redraw()
+
+		# Add a lifetime timer so it eventually gets destroyed after 5 seconds
+		var lifetime_timer = get_tree().create_timer(5.0)
+		lifetime_timer.timeout.connect(queue_free)
+
+	func _draw():
+		draw_circle(Vector2.ZERO, 35.0, Color(0.1, 0.05, 0.15, 0.6))
+
+	func _on_body_entered(body: Node2D):
+		if body.is_in_group("player") or body.name == "Player":
+			player_ref = body
+			player_ref.speed = 125.0
+			damage_timer.start()
+
+	func _on_body_exited(body: Node2D):
+		if body == player_ref:
+			if is_instance_valid(player_ref):
+				player_ref.speed = 250.0
+			player_ref = null
+			damage_timer.stop()
+
+	func _on_damage_timer_timeout():
+		if is_instance_valid(player_ref) and player_ref.has_method("take_damage"):
+			player_ref.take_damage(1)
+
+	func _exit_tree():
+		if is_instance_valid(player_ref):
+			player_ref.speed = 250.0

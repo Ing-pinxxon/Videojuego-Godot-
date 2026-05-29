@@ -11,7 +11,7 @@ func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
 	super._ready()
 
@@ -62,10 +62,21 @@ func _chase_logic(_delta):
 func _shoot():
 	if is_dead or not target_player: return
 
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = (target_player.global_position - global_position).normalized()
-	get_parent().add_child(projectile)
+	# Teleport to a random location 80 pixels away from the player
+	var angle = randf() * TAU
+	var offset = Vector2.from_angle(angle) * 80.0
+	global_position = target_player.global_position + offset
+
+	# Fade in using a tween from alpha 0.0 to 1.0
+	animations.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(animations, "modulate:a", 1.0, 0.3)
+
+	# Deal damage to the player if they are within 75 pixels
+	var dist = global_position.distance_to(target_player.global_position)
+	if dist <= 75.0:
+		if target_player.has_method("take_damage"):
+			target_player.take_damage(contact_damage)
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")

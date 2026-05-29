@@ -11,8 +11,9 @@ func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
+	attack_timer = fire_rate - 0.5
 	super._ready()
 
 	if hearts_container:
@@ -62,10 +63,24 @@ func _chase_logic(_delta):
 func _shoot():
 	if is_dead or not target_player: return
 
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = (target_player.global_position - global_position).normalized()
-	get_parent().add_child(projectile)
+	# Disparar desde el pecho/boca del demonio (15 píxeles arriba de su origen)
+	var shoot_pos = global_position - Vector2(0, 15)
+	# Apuntar al pecho del jugador (16px arriba de su origen) para que el proyectil viaje recto
+	var player_center = target_player.global_position - Vector2(0, 16)
+	var base_dir = (player_center - shoot_pos).normalized()
+	var angles = [-0.35, 0.0, 0.35]
+
+	for angle in angles:
+		var projectile = projectile_scene.instantiate()
+		# Asignar base_scale ANTES de agregarlo a la escena para que _ready() aplique la colisión correcta
+		if "base_scale" in projectile:
+			projectile.base_scale = 1.8 # Bolas de fuego gigantes
+			projectile.speed = 220.0 # Velocidad más pesada y realista para proyectiles grandes
+		projectile.direction = base_dir.rotated(angle)
+		projectile.modulate = Color(1.0, 0.45, 0.0) # Rojo-naranja ígneo vibrante
+		get_parent().add_child(projectile)
+		# En Godot 4, se debe asignar global_position DESPUÉS de add_child para evitar desfases del padre
+		projectile.global_position = shoot_pos
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")

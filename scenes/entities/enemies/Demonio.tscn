@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dco1i83rtcqf" path="res://scripts/demonio.gd" id="1_ewwuh"]
 [ext_resource type="Texture2D" uid="uid://boym4egtorn5j" path="res://assets/sprites/enemies/Demonio.png" id="1_nn6v0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewwuh"]
-size = Vector2(67.000015, 119)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewwuh"]
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhoux"]
 atlas = ExtResource("1_nn6v0")
@@ -104,13 +104,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf7ov"]
-radius = 78.77182
+radius = 28.0
 
 [node name="Demonio" type="CharacterBody2D" unique_id=1582164811 groups=["enemies"]]
 script = ExtResource("1_ewwuh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090630314]
-shape = SubResource("RectangleShape2D_ewwuh")
+shape = SubResource("CircleShape2D_ewwuh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2097038036]
 scale = Vector2(1.4404287, 1.4112372)

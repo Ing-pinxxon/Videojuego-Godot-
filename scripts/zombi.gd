@@ -7,11 +7,16 @@ var attack_timer: float = 0.0
 var hit_stun_timer: float = 0.0
 const HIT_STUN_DURATION: float = 0.4
 
+var is_charging: bool = false
+var charge_timer: float = 0.0
+var charge_direction: Vector2 = Vector2.ZERO
+const CHARGE_DURATION: float = 0.5
+
 func _ready():
 	speed = 80
 	detection_range = 400.0
 	attack_range = 300.0
-	max_health = 2
+	max_health = 5
 	show_health_bar = false
 	super._ready()
 
@@ -19,6 +24,14 @@ func _ready():
 		hearts_container.alignment = BoxContainer.ALIGNMENT_CENTER
 
 func _physics_process(_delta):
+	if is_charging:
+		charge_timer -= _delta
+		velocity = charge_direction * (speed * 3.0)
+		move_and_slide()
+		if charge_timer <= 0:
+			is_charging = false
+		return
+
 	# Cuenta regresiva del hit stun
 	if hit_stun_timer > 0:
 		hit_stun_timer -= _delta
@@ -62,10 +75,13 @@ func _chase_logic(_delta):
 func _shoot():
 	if is_dead or not target_player: return
 
-	var projectile = projectile_scene.instantiate()
-	projectile.global_position = global_position
-	projectile.direction = (target_player.global_position - global_position).normalized()
-	get_parent().add_child(projectile)
+	is_charging = true
+	charge_timer = CHARGE_DURATION
+	charge_direction = (target_player.global_position - global_position).normalized()
+
+	var tween = create_tween()
+	tween.tween_property(animations, "modulate", Color.RED, 0.1)
+	tween.tween_property(animations, "modulate", Color.WHITE, 0.1).set_delay(CHARGE_DURATION)
 
 	if animations.sprite_frames.has_animation("attack"):
 		animations.play("attack")

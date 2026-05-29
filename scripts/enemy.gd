@@ -4,11 +4,12 @@ class_name Enemy
 enum State { PATROL, CHASE, ATTACK, DEAD }
 @export var enemy_id: String = ""
 @export_group("Base Attributes")
-@export var max_health: int = 2
+@export var max_health: int = 5
 @export var speed: int = 100
 @export var detection_range: float = 200.0
 @export var attack_range: float = 50.0
 @export var show_health_bar: bool = false
+@export var contact_damage: int = 1
 
 var health: int = 0
 var current_state: State = State.PATROL
@@ -65,6 +66,9 @@ func _physics_process(_delta):
 	_update_ui_position()
 
 func _update_state():
+	if not is_instance_valid(target_player):
+		_setup_detection()
+
 	if target_player:
 		var dist = global_position.distance_to(target_player.global_position)
 		if dist <= attack_range:
@@ -134,7 +138,11 @@ func _update_ui_position():
 func take_damage(amount: int):
 	if is_dead or is_loading: return
 
-	health -= amount
+	# Modo Prueba: Kills de 1 golpe
+	if "modo_prueba" in GlobalState and GlobalState.modo_prueba:
+		health = 0
+	else:
+		health -= amount
 	_update_hearts()
 
 	var tween = create_tween()
@@ -143,6 +151,14 @@ func take_damage(amount: int):
 
 	if health <= 0:
 		die()
+
+func heal(amount: int):
+	if is_dead: return
+	health = min(health + amount, max_health)
+	_update_hearts()
+	var tween = create_tween()
+	tween.tween_property(animations, "modulate", Color.GREEN, 0.1)
+	tween.tween_property(animations, "modulate", Color.WHITE, 0.1)
 
 func die():
 	is_dead = true
@@ -181,3 +197,12 @@ func _update_hearts():
 	else:
 		hearts_container.visible = true
 		health_bar.visible = false
+
+func _on_hitbox_body_entered(body: Node2D):
+	if body.is_in_group("player") or body.name == "Player":
+		if can_damage and not is_loading:
+			if body.has_method("take_damage"):
+				body.take_damage(contact_damage)
+
+func _on_hitbox_area_entered(area: Area2D):
+	pass

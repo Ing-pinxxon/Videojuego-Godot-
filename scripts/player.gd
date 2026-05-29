@@ -17,7 +17,7 @@ var is_attacking: bool = false
 
 var last_direction: String = "up"
 var is_invincible: bool = false
-@export var invincibility_duration: float = 1.0
+@export var invincibility_duration: float = 1.5
 
 var hearts_container: HBoxContainer
 var heart_texture = preload("res://assets/ui/heart.png")
@@ -33,7 +33,7 @@ func _ready():
 			attack_area.area_entered.connect(_on_attack_area_entered)
 		var shape = attack_area.get_node("CollisionShape2D").shape
 		if shape is RectangleShape2D:
-			shape.size = Vector2(40, 40)
+			shape.size = Vector2(120, 90)
 
 	hearts_container = HBoxContainer.new()
 	hearts_container.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -75,6 +75,13 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
+	
+	# Empujar objetos dinámicos (piedras/rocas) al hacer contacto físico
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider and collider.has_method("push_object"):
+			collider.push_object(collision.get_normal())
 
 	# Solo empujar objetos si NO estamos cargando uno
 	if objeto_cargado == null:
@@ -152,6 +159,11 @@ func _position_attack_area():
 
 func take_damage(amount: int):
 	if is_invincible: return
+
+	# Modo Prueba: Inmortalidad completa
+	if "modo_prueba" in GlobalState and GlobalState.modo_prueba:
+		print("🛡️ [Modo Prueba] ¡Daño de ", amount, " bloqueado!")
+		return
 
 	health -= amount
 	_update_hearts()

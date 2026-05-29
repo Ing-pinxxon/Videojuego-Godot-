@@ -71,6 +71,7 @@ func plataforma_desactivada() -> void:
 	print("Objeto retirado, puzzle bloqueado de nuevo")
 
 
+
 # ======================================================
 # FUNCIÓN PARA VERIFICAR EL ESTADO DEL PUZZLE
 # ======================================================
